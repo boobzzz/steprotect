@@ -15,35 +15,34 @@ const Header = (props) => {
     }, [])
 
     return (
-        <>
-            <header className={scrolled ? classes.Fixed : null}>
-                <div className={classes.Wrapper}>
-                    <div className={classes.Logo}>
+        <header className={scrolled ? classes.Fixed : null}>
+            <div className={classes.Wrapper}>
+                <div className={classes.Logo}>
+                    <a href="/#">
                         <img src={!scrolled ? logoVr : logoHr} alt=""/>
-                    </div>
-                    <nav className={classes.Menu}>
-                        <ul className={classes.MenuList}>
-                            <li>
-                                <a href="/#">головна</a>
-                            </li>
-                            <li>
-                                <a href="/#">про нас</a>
-                            </li>
-                            <li>
-                                <a href="/#">послуги</a>
-                            </li>
-                            <li>
-                                <a href="/#">замовити</a>
-                            </li>
-                            <li>
-                                <a href="/#">контакти</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    </a>
                 </div>
-            </header>
-            <section className={classes.Banner}></section>
-        </>
+                <nav className={classes.Menu}>
+                    <ul className={classes.MenuList}>
+                        <li>
+                            <a href="/#">головна</a>
+                        </li>
+                        <li>
+                            <a href="/#">про нас</a>
+                        </li>
+                        <li>
+                            <a href="/#">послуги</a>
+                        </li>
+                        <li>
+                            <a href="/#">замовити</a>
+                        </li>
+                        <li>
+                            <a href="/#">контакти</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
     )
 }
 
