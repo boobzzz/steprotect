@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1bd4d5bd8b4ce4e83fb1425e8121578",
+    "revision": "2b3d97c9cc47ce28c5703b81d4ecbe71",
     "url": "/steprotect/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/steprotect/static/css/2.b0d70484.chunk.css"
   },
   {
-    "revision": "2e96b5f9ab02fb8c7df0",
-    "url": "/steprotect/static/css/main.73193bd6.chunk.css"
+    "revision": "acc45e8f14bb0e6a9e22",
+    "url": "/steprotect/static/css/main.99f78d54.chunk.css"
   },
   {
     "revision": "37d372b4bcf951c41e0d",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/steprotect/static/js/2.93b77471.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2e96b5f9ab02fb8c7df0",
-    "url": "/steprotect/static/js/main.29b8df66.chunk.js"
+    "revision": "acc45e8f14bb0e6a9e22",
+    "url": "/steprotect/static/js/main.0bc6f0f4.chunk.js"
   },
   {
     "revision": "1883b139e2a60daef005",
