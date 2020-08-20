@@ -2,16 +2,16 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%;
-    padding: 30px 40px;
+    padding: 30px 16px;
     transition: all 0.6s ease;
-    z-index: 1000;
+    z-index: 100;
 }
-    header.Fixed {
-        position: fixed;
-        top: 0; left: 0;
-        padding: 5px 16px 1px 16px;
-        background: #57b957;
-    }
+header.Fixed {
+    position: fixed;
+    top: 0; left: 0;
+    padding: 5px 16px 5px 16px;
+    background: var(--red);
+}
 
 .Wrapper {
     display: flex;
@@ -27,35 +27,88 @@ header {
         height: 170px;
     }
     header.Fixed .Logo img {
-        height: 70px;
+        height: 52px;
     }
 
 .MenuList {
+    margin: 0;
     display: flex;
     justify-content: flex-end;
     height: 100%;
 }
-    header.Fixed .MenuList {
-        align-items: center;
-    }
 
+/* --------------------------------Menu Button------------------------------- */
 .MenuList a {
+    position: relative;
     display: block;
-    padding: 0 16px;
+    padding: 16px 32px;
     font-weight: 700;
     font-size: 20px;
     line-height: 20px;
     text-transform: uppercase;
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     transition: all 0.3s ease;
+}
+
+header.Fixed .MenuList {
+    align-items: center;
 }
     header.Fixed .MenuList a {
         color: #182345;
     }
-    .MenuList a:hover {
-        color: #57b957;
-    }
-    header.Fixed .MenuList a:hover {
-        color: #fff;
-    }
+
+/* ----------------------------Menu Button Animation------------------------- */
+.MenuList a:hover {
+    color: var(--red);
+}
+header.Fixed .MenuList a:hover {
+    color: var(--white);
+}
+
+.MenuList a:before,
+.MenuList a:after,
+header.Fixed .MenuList a:before,
+header.Fixed .MenuList a:after {
+    content: '';
+    position: absolute;
+    transition: inherit;
+}
+.MenuList a:before,
+header.Fixed .MenuList a:before {
+    top: 0; left: 50%;
+    width: 0;
+    height: 100%;
+}
+.MenuList a:before {
+    border-top: 1px solid var(--red);
+    border-bottom: 1px solid var(--red);
+}
+header.Fixed .MenuList a:before {
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
+}
+.MenuList a:after,
+header.Fixed .MenuList a:after {
+    top: 50%; left: 0;
+    width: 100%;
+    height: 0;
+}
+.MenuList a:after {
+    border-left: 1px solid var(--red);
+    border-right: 1px solid var(--red);
+}
+header.Fixed .MenuList a:after {
+    border-left: 1px solid var(--white);
+    border-right: 1px solid var(--white);
+}
+.MenuList a:hover:before,
+header.Fixed .MenuList a:hover:before {
+    left: 0;
+    width: 100%;
+}
+.MenuList a:hover:after,
+header.Fixed .MenuList a:hover:after {
+    top: 0;
+    height: 100%;
+}

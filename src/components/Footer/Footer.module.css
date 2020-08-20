@@ -5,7 +5,6 @@ footer {
     background-position: center center;
     padding: 50px 16px;
 }
-
 .Wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -17,22 +16,26 @@ footer {
 /* -----------------------------------Logo------------------------------------*/
 .Logo p {
     margin-top: 20px;
-    margin-bottom: 30px;
     text-align: justify;
-    color: #C7CACE;
+    color: var(--footer);
 }
-.Logo a {
+.Viber {
     display: inline-block;
-    text-decoration: none;
+    margin-top: 40px;
     width: 100%;
-    font-size: 20px;
-    color: #C7CACE;
+    font-size: 22px;
+    text-decoration: none;
+    color: var(--footer);
     transition: all 0.3s ease;
 }
-.Logo a:hover {
+.Viber:hover {
     letter-spacing: 1px;
-    color: #57b957;
+    color: var(--red);
 }
+    .Viber span {
+        margin-left: 10px;
+        font-weight: 500;
+    }
     .Logo a i {
         width: 100%;
         height: 100%;
@@ -41,17 +44,14 @@ footer {
         align-items: center;
         font-style: normal;
     }
-    .Logo a span {
-        margin-left: 10px;
-    }
-    .Logo a span+span {
-        margin-top: 10px;
-    }
 .Logo ul {
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    justify-content: center;
+    margin-top: 40px;
 }
+    .Logo ul li {
+        margin: 0 10px;
+    }
     .Logo ul a {
         display: inline-block;
         width: 60px;
@@ -60,12 +60,12 @@ footer {
         text-align: center;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.1);
-        color: #C7CACE;
+        color: var(--footer);
         transition: all 0.4s ease;
     }
     .Logo ul a:hover {
-        background: #57b957;
-        color: #fff;
+        background: var(--red);
+        color: var(--white);
     }
 
 /* ----------------------------------Services---------------------------------*/
@@ -74,7 +74,7 @@ footer {
     margin-bottom: 50px;
     font-weight: 700;
     font-size: 30px;
-    color: #C7CACE;
+    color: var(--footer);
 }
 .Services a {
     display: flex;
@@ -82,15 +82,15 @@ footer {
     margin-top: 20px;
     font-size: 20px;
     text-decoration: none;
-    color: #C7CACE;
+    color: var(--footer);
     transition: all 0.3s ease;
 }
 .Services a:hover {
-    color: #57b957;
+    color: var(--red);
     transform: translateX(20px);
 }
     .Services a i {
-        margin-left: 10px;
+        padding-left: 10px;
         font-style: normal;
     }
 
@@ -99,7 +99,7 @@ footer {
     margin-bottom: 50px;
     font-weight: 700;
     font-size: 30px;
-    color: #C7CACE;
+    color: var(--footer);
 }
 .Articles div {
     display: grid;

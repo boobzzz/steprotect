@@ -3,7 +3,7 @@ import ScrollUpButton from "react-scroll-up-button";
 
 const ScrollUp = (props) => {
     const btnStyles = {
-        background: '#57b957',
+        background: '#FF0000',
         outline: 'none'
     }
 

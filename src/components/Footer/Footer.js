@@ -6,10 +6,8 @@ import * as Fa from 'react-icons/fa';
 import classes from './Footer.module.css';
 
 const socials = [
-    {key: 1, icon: <Fa.FaFacebookF />},
-    {key: 2, icon: <Fa.FaInstagram />},
-    {key: 3, icon: <Fa.FaTwitter />},
-    {key: 4, icon: <Fa.FaLinkedin />}
+    {id: 1, icon: <Fa.FaFacebookF />},
+    {id: 2, icon: <Fa.FaInstagram />}
 ]
 const services = [
     'Відеоспостереження',
@@ -24,8 +22,8 @@ const Footer = (props) => {
     return (
         <footer>
             <div className={classes.Wrapper}>
-                <div className={classes.Logo}>
-                    <a href="/#">
+                <div id="contacts" className={classes.Logo}>
+                    <a href="/">
                         <img src={footerLogo} alt=""/>
                     </a>
                     <p>
@@ -34,15 +32,12 @@ const Footer = (props) => {
                         Підключення інтернету та GSM зв'язку в місцях з відсутнім
                         покриттям мережі.
                     </p>
-                    <a href="/#">
-                        <i><Fa.FaViber /><span>80 67 320 0348</span></i>
-                    </a>
-                    <a href="/#">
-                        <i><Fa.FaTelegram /><span>@telegram_nick</span></i>
+                    <a href="/#" className={classes.Viber}>
+                        <i><Fa.FaViber /><span>+38 (097) 769 97 99</span></i>
                     </a>
                     <ul>
                         {socials.map(social =>
-                            <li key={social.key}>
+                            <li key={social.id}>
                                 <a href="/#"><i>{social.icon}</i></a>
                             </li>
                         )}

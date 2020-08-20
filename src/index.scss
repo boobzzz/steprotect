@@ -1,0 +1,14 @@
+@import './reset';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+    --red: #FF0000;
+    --white: #FFF;
+    --h5: #182345;
+    --label: #B2B3BA;
+    --input: #ADB5BD;
+    --text: #848484;
+    --footer: #C7CACE;
+    padding-right: 0px !important;
+    font-family: 'Montserrat', sans-serif;
+}
