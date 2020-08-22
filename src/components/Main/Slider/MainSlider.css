@@ -1,8 +1,8 @@
-.slider {
+.MainSlider .slider {
     height: 780px;
 }
 
-.slide {
+.MainSlider .slide {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,7 @@
     text-align: center;
     color: var(--white);
 }
-    .slide h1 {
+    .MainSlider .slide h1 {
         max-width: 1200px;
         padding: 0 16px;
         font-weight: 700;
@@ -19,7 +19,7 @@
     	transform: translateY(-20px);
     	opacity: 0;
     }
-    .slide p {
+    .MainSlider .slide p {
         max-width: 1200px;
         margin-top: 10px;
         font-size: 24px;
@@ -28,45 +28,45 @@
         transform: translateY(20px);
     	opacity: 0;
     }
-    .slide div {
+    .MainSlider .slide div {
         transform: translateY(20px);
         opacity: 0;
     }
 
 
-.slide.animateIn.previous h1,
-.slide.current h1,
-.slide.animateIn.next h1,
-.slide.animateIn.previous p,
-.slide.current p,
-.slide.animateIn.next p,
-.slide.animateIn.previous div,
-.slide.current div,
-.slide.animateIn.next div {
+.MainSlider .slide.animateIn.previous h1,
+.MainSlider .slide.current h1,
+.MainSlider .slide.animateIn.next h1,
+.MainSlider .slide.animateIn.previous p,
+.MainSlider .slide.current p,
+.MainSlider .slide.animateIn.next p,
+.MainSlider .slide.animateIn.previous div,
+.MainSlider .slide.current div,
+.MainSlider .slide.animateIn.next div {
     transform: translateX(0);
     transition-delay: 0.9s;
     opacity: 1;
 }
 
-.slide.animateIn.previous p,
-.slide.animateIn.next p {
+.MainSlider .slide.animateIn.previous p,
+.MainSlider .slide.animateIn.next p {
     transition-delay: 1.1s;
 }
 
-.slide.animateIn.previous div,
-.slide.animateIn.next div {
+.MainSlider .slide.animateIn.previous div,
+.MainSlider .slide.animateIn.next div {
 	transition-delay: 1.3s;
 }
 
-.slide.animateOut h1 {
+.MainSlider .slide.animateOut h1 {
     transition-delay: 0.3s;
 }
 
-.slide.animateOut p {
+.MainSlider .slide.animateOut p {
     transition-delay: 0.2s;
 }
 
-.slide div:hover,
-.slide.current div {
+.MainSlider .slide div:hover,
+.MainSlider .slide.current div {
     transition-delay: 0s;
 }

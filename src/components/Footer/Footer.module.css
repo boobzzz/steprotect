@@ -30,6 +30,7 @@ footer {
 }
 .Viber:hover {
     letter-spacing: 1px;
+    text-decoration: none;
     color: var(--red);
 }
     .Viber span {

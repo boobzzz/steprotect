@@ -1,6 +1,9 @@
 @import './reset';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+html {
+    // scroll-behavior: smooth;
+}
 body {
     --red: #FF0000;
     --white: #FFF;

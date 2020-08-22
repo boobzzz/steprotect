@@ -1,5 +1,5 @@
 .Process {
-    padding: 60px 16px 50px 16px;
+    padding: 70px 16px;
     background: #EBF0EB;
 }
 
@@ -7,40 +7,17 @@
     max-width: 1200px;
     margin: auto;
 }
-
-.Header span {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--red);
-}
-.Header span:before {
-    content: '';
-    display: inline-block;
-    width: 50px;
-    height: 2px;
-    margin-right: 20px;
-    vertical-align: middle;
-    background: var(--red);
-}
-.Header h2 {
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 42px;
-    color: #222222;
-}
-.Header p {
-    margin-bottom: 60px;
-    font-size: 22px;
-    color: var(--text);
-}
-.Header a {
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--red);
-    transition: all 0.2s ease;
-}
+    .Wrapper>p {
+        margin-bottom: 70px;
+        font-size: 22px;
+        color: var(--text);
+    }
+    .Wrapper a {
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--red);
+        transition: all 0.2s ease;
+    }
 
 .Phase {
     display: grid;

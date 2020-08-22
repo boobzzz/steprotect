@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+
 import classes from './Process.module.css';
 
 const stages = [
@@ -28,13 +30,15 @@ const Process = (props) => {
     return (
         <section id="process" className={classes.Process}>
             <div className={classes.Wrapper}>
-                <div className={classes.Header}>
-                    <span>Як ми працюємо</span>
-                    <h2>Замовлення послуги</h2>
-                    <p>Телефонуйте за номером
-                    <a href="/#"> +38 (097) 769 97 99 </a>
-                    або сформуйте замовлення через наш сайт</p>
-                </div>
+                <SectionHeader
+                    section="Як ми працюємо"
+                    title="Замовлення послуги"
+                    titleColor="#222" />
+                <p>
+                    Телефонуйте за номером
+                    <a href="/#"> +38 (097)769 97 99 </a>
+                    або сформуйте замовлення через наш сайт
+                </p>
                 <div className={classes.Phase}>
                     {stages.map(stage =>
                         <div key={stage.phase}>

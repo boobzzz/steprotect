@@ -1,5 +1,5 @@
 .About {
-    padding: 60px 16px 70px 16px;
+    padding: 70px 16px;
 }
 
 .Wrapper {
@@ -7,34 +7,11 @@
     margin: auto;
 }
 
-.Header span {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--red);
-}
-.Header span:before {
-    content: '';
-    display: inline-block;
-    width: 50px;
-    height: 2px;
-    margin-right: 20px;
-    vertical-align: middle;
-    background: var(--red);
-}
-.Header h2 {
-    margin-bottom: 60px;
-    font-weight: 600;
-    font-size: 42px;
-    color: #222222;
-}
-
 .Item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2vw;
-    margin: 40px 0;
+    margin: 70px 0 40px 0;
 }
     .Item div div {
         display: flex;

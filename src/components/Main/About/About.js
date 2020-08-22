@@ -3,6 +3,8 @@ import * as Fa from 'react-icons/fa';
 import * as Bs from 'react-icons/bs';
 import * as Io from 'react-icons/io';
 
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+
 import classes from './About.module.css';
 
 const abouts = [
@@ -30,10 +32,10 @@ const About = (props) => {
     return (
         <section id="about" className={classes.About}>
             <div className={classes.Wrapper}>
-                <div className={classes.Header}>
-                    <span>Про нас</span>
-                    <h2>Чому ми?</h2>
-                </div>
+                <SectionHeader
+                    section="Про нас"
+                    title="Чому ми?"
+                    titleColor="#222"/>
                 <div className={classes.Item}>
                     {abouts.map(about =>
                         <div key={about.id}>

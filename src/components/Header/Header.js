@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
 
 import ModalContainer from '../UI/Modal/Modal';
 import FormOrder from '../Form/Order/FormOrder';
 import classes from './Header.module.css';
 import logoVr from '../../assets/logo/logo_vr_r.svg';
 import logoHr from '../../assets/logo/logo_hr.svg';
+
+// const BASEPATH = '/steprotect/'
 
 const Header = (props) => {
     const [ scrolled, setScrolled ] = useState(false)
@@ -31,29 +34,29 @@ const Header = (props) => {
                     <nav className={classes.Menu}>
                         <ul className={classes.MenuList}>
                             <li>
-                                <a href="/">
+                                <Link to="top" smooth={true} duration={1000}>
                                     головна
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#about">
+                                <Link to="about" smooth={true} duration={1000}>
                                     про нас
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="/">
+                                <Link to="services" smooth={true} duration={1000}>
                                     послуги
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="/#" onClick={toggleModal}>
+                                <a href="/steprotect/#" onClick={toggleModal}>
                                     замовити
                                 </a>
                             </li>
                             <li>
-                                <a href="#contacts">
+                                <Link to="contacts" smooth={true} duration={1000}>
                                     контакти
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
