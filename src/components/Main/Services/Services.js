@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import SectionHeader from '../SectionHeader/SectionHeader';
 import ServicesSlider from './Slider/ServicesSlider';
 
 import classes from './Services.module.css';
@@ -8,7 +8,7 @@ import classes from './Services.module.css';
 const Services = (props) => {
     return (
         <section id="services" className={classes.Services}>
-            <div className={classes.Wrapper}>
+            <div className="wrapper">
                 <SectionHeader
                     section="Послуги"
                     title="Що ми пропонуємо"

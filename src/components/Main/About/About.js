@@ -1,37 +1,48 @@
 import React from 'react';
-import * as Fa from 'react-icons/fa';
-import * as Bs from 'react-icons/bs';
-import * as Io from 'react-icons/io';
+import { GiWeightLiftingUp } from 'react-icons/gi';
+import { RiUserFollowLine } from 'react-icons/ri';
+import { AiOutlineExpand } from 'react-icons/ai';
+import { MdHighQuality } from 'react-icons/md';
 
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 import classes from './About.module.css';
 
 const abouts = [
     {
         id: 1,
-        icon: <Fa.FaCertificate />,
-        title: 'Якість',
-        desc: 'Використовуємо виключно оригінальне, сертифіковане обладнання.'
+        icon: <RiUserFollowLine />,
+        title: 'Відповідальність',
+        desc: `Відповідальність у Steprotect є першочерговою. Ми приїдемо в
+               чітко зазначений час, зробимо свою роботу професійно та чисто.`
     },
     {
         id: 2,
-        icon: <Bs.BsShieldLockFill />,
-        title: 'Надійність',
-        desc: 'Більше 10 років успішного практичного досвіду на ринку.'
+        icon: <MdHighQuality />,
+        title: 'Якість',
+        desc: `Ми прагнемо надавати послуги на європейському рівні, керуючись
+               взаємоповагою та орієнтуючись на тривалу співпрацю.`
     },
     {
         id: 3,
-        icon: <Io.IoIosCalculator />,
+        icon: <AiOutlineExpand />,
         title: 'Гнучкість',
-        desc: 'Підберемо оптимальну цінову пропозицію відповідно до заданого бюджету.'
+        desc: `Нам цікаво робити безпечними площі різного масштабу. Маємо якісний
+               досвід роботи з квартирами та будинками, торговими майданчиками
+               та бізнес центрами, виробництвами та складами.`
+    },
+    {
+        id: 4,
+        icon: <GiWeightLiftingUp />,
+        title: 'Розвиток',
+        desc: `Ми любимо складні задачі, бо саме вони є запорукою невпинного розвитку.`
     }
 ]
 
 const About = (props) => {
     return (
         <section id="about" className={classes.About}>
-            <div className={classes.Wrapper}>
+            <div className="wrapper">
                 <SectionHeader
                     section="Про нас"
                     title="Чому ми?"

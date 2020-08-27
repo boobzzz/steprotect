@@ -2,17 +2,12 @@
     padding: 70px 16px;
     background: #EBF0EB;
 }
-
-.Wrapper {
-    max-width: 1200px;
-    margin: auto;
-}
-    .Wrapper>p {
+    .Process > div > p {
         margin-bottom: 70px;
         font-size: 22px;
         color: var(--text);
     }
-    .Wrapper a {
+    .Process > div a {
         font-weight: 500;
         text-decoration: none;
         color: var(--red);

@@ -1,9 +1,6 @@
 @import './reset';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
-html {
-    // scroll-behavior: smooth;
-}
 body {
     --red: #FF0000;
     --white: #FFF;
@@ -14,4 +11,13 @@ body {
     --footer: #C7CACE;
     padding-right: 0px !important;
     font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
 }

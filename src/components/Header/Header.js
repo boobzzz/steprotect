@@ -1,65 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
 
-import ModalContainer from '../UI/Modal/Modal';
+import HamburgerMenu from 'react-hamburger-menu';
+import NavBar from './NavBar/NavBar';
 import FormOrder from '../Form/Order/FormOrder';
+import ModalContainer from '../UI/Modal/Modal';
+
 import classes from './Header.module.css';
+
 import logoVr from '../../assets/logo/logo_vr_r.svg';
 import logoHr from '../../assets/logo/logo_hr.svg';
 
-// const BASEPATH = '/steprotect/'
-
 const Header = (props) => {
     const [ scrolled, setScrolled ] = useState(false)
+    const [ open, setOpen ] = useState(false)
     const [ modal, setModal ] = useState(false)
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            const isTop = window.scrollY > 180
+            const isTop = window.scrollY > 1
             isTop ? setScrolled(true) : setScrolled(false)
         })
     }, [])
+
+    const toggleMenu = () => setOpen(!open)
 
     const toggleModal = () => setModal(!modal)
 
     return (
         <>
             <header className={scrolled ? classes.Fixed : null}>
-                <div className={classes.Wrapper}>
+                <div className="wrapper">
                     <div className={classes.Logo}>
                         <a href="/">
                             <img src={!scrolled ? logoVr : logoHr} alt=""/>
                         </a>
                     </div>
-                    <nav className={classes.Menu}>
-                        <ul className={classes.MenuList}>
-                            <li>
-                                <Link to="top" smooth={true} duration={1000}>
-                                    головна
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="about" smooth={true} duration={1000}>
-                                    про нас
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="services" smooth={true} duration={1000}>
-                                    послуги
-                                </Link>
-                            </li>
-                            <li>
-                                <a href="/steprotect/#" onClick={toggleModal}>
-                                    замовити
-                                </a>
-                            </li>
-                            <li>
-                                <Link to="contacts" smooth={true} duration={1000}>
-                                    контакти
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div className={open
+                                    ? `${classes.Menu} ${classes.Show}`
+                                    : classes.Menu}>
+                        <HamburgerMenu
+                            isOpen={open}
+                            menuClicked={toggleMenu}
+                            width={40}
+                            height={20}
+                            strokeWidth={4}
+                            color="#FF0000"
+                            animationDuration={0.3}
+                            className={classes.Hamburger} />
+                        <NavBar clicked={toggleModal} />
+                        <NavBar clicked={toggleModal} />
+                    </div>
                 </div>
             </header>
             <ModalContainer

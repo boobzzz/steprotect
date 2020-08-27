@@ -3,14 +3,12 @@ footer {
     background-image: url('../../assets/images/footer-map-1-1.png');
     background-repeat: no-repeat;
     background-position: center center;
-    padding: 50px 16px;
+    padding: 40px 16px;
 }
-.Wrapper {
+footer > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10vw;
-    max-width: 1200px;
-    margin: auto;
+    column-gap: 5vw;
 }
 
 /* -----------------------------------Logo------------------------------------*/
@@ -19,21 +17,23 @@ footer {
     text-align: justify;
     color: var(--footer);
 }
-.Viber {
+.Logo > div {
+    margin-top: 30px;
+}
+.Logo > div > a {
     display: inline-block;
-    margin-top: 40px;
     width: 100%;
     font-size: 22px;
     text-decoration: none;
     color: var(--footer);
     transition: all 0.3s ease;
 }
-.Viber:hover {
+.Logo > div > a:hover {
     letter-spacing: 1px;
     text-decoration: none;
     color: var(--red);
 }
-    .Viber span {
+    .Logo > div > a span {
         margin-left: 10px;
         font-weight: 500;
     }
@@ -107,10 +107,9 @@ footer {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1vw;
 }
-.Articles a {
-    height: 84px;
-}
 .Articles a img {
+    width: 100%; height: 100%;
+    object-fit: cover;
     filter: brightness(50%);
     transition: all 0.3s ease;
 }

@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import * as U from '../../../utils/api';
+import { css } from "@emotion/core";
 
+import Spinner from '../../UI/Spinner/Spinner';
 import FieldText from '../../UI/Field/Text/FieldText';
 import FieldPhone from '../../UI/Field/Phone/FieldPhone';
 import FieldSelect from '../../UI/Field/Select/FieldSelect';
+
 import classes from './FormOrder.module.css';
 
 const options = [
@@ -30,8 +33,13 @@ const validationSchema = Yup.object({
         .required('Введіть Вашу електронну скриньку *')
         .email('Невірний формат електронної скриньки *'),
 })
+const style = css`
+    width: 100px;
+    height: 3px;
+`
 
 const FormOrder = (props) => {
+    const [ isLoading, setIsLoading ] = useState(false)
     const [ successMsg, setSuccessMsg ] = useState(false)
 
     const handleSubmit = async (values, {resetForm}) => {
@@ -40,7 +48,10 @@ const FormOrder = (props) => {
             body: values
         }
 
+        setIsLoading(true)
         let res = await U.fetchJSON('/order', options)
+        setIsLoading(false)
+
         res.status === 200 ? setSuccessMsg(true) : setSuccessMsg(false)
 
         resetForm({ values: '' })
@@ -48,11 +59,6 @@ const FormOrder = (props) => {
 
     return (
         <>
-            <span className={successMsg
-                            ? `${classes.Msg} ${classes.Success}`
-                            : `${classes.Msg} ${classes.Failed}`}>
-                Замовлення успішно сформовано
-            </span>
             <div className={classes.Form}>
                 <Formik
                     initialValues={initialValues}
@@ -65,9 +71,20 @@ const FormOrder = (props) => {
                                 <FieldSelect id="services" label="послуга *" options={options} />
                                 <FieldPhone id="phone" label="номер телефону *" />
                                 <FieldText id="email" type="email" label="електронна скринька *" />
-                                <button type="submit" className={classes.SubmitBtn}>
-                                    замовити
-                                </button>
+                                <span className={successMsg
+                                    ? `${classes.Msg} ${classes.Success}`
+                                    : `${classes.Msg} ${classes.Failed}`}>
+                                    Замовлення успішно сформовано
+                                </span>
+                                <div className={classes.SubmitBtn}>
+                                    {isLoading
+                                    ? <div>
+                                        <Spinner style={style} color="#FF0000" loading={isLoading} />
+                                    </div>
+                                    : <button type="submit">
+                                        замовити
+                                    </button>}
+                                </div>
                             </Form>
                         )
                     }}

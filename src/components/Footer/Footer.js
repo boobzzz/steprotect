@@ -1,8 +1,10 @@
 import React from 'react';
 import * as R from 'ramda';
+import { Link } from 'react-scroll';
 
 import footerLogo from '../../assets/logo/logo_footer.svg';
 import * as Fa from 'react-icons/fa';
+import * as Fi from 'react-icons/fi';
 import classes from './Footer.module.css';
 
 const socials = [
@@ -21,20 +23,25 @@ const imgCount = 6
 const Footer = (props) => {
     return (
         <footer>
-            <div className={classes.Wrapper}>
+            <div className="wrapper">
                 <div id="contacts" className={classes.Logo}>
-                    <a href="/">
+                    <Link to="top" smooth={true} duration={1000}>
                         <img src={footerLogo} alt=""/>
-                    </a>
+                    </Link>
                     <p>
                         SteProtect - Проектування та встановлення сучасних систем
                         відеоспостереження та сигналізації для дому та бізнесу.
                         Підключення інтернету та GSM зв'язку в місцях з відсутнім
                         покриттям мережі.
                     </p>
-                    <a href="/#" className={classes.Viber}>
-                        <i><Fa.FaViber /><span>+38 (097) 769 97 99</span></i>
-                    </a>
+                    <div>
+                        <a href="viber://add?number=380676731457">
+                            <i><Fa.FaViber /><span>+38 (067) 673 14 57</span></i>
+                        </a>
+                        <a href="mailto:steprotect.ua@gmail.com">
+                            <i><Fi.FiMail /><span>steprotect.ua@gmail.com</span></i>
+                        </a>
+                    </div>
                     <ul>
                         {socials.map(social =>
                             <li key={social.id}>
@@ -48,9 +55,9 @@ const Footer = (props) => {
                     <ul>
                         {services.map(service =>
                             <li key={service}>
-                                <a href="/#">
+                                <Link to="services" smooth={true} duration={1000}>
                                     <Fa.FaAngleRight /><i>{service}</i>
-                                </a>
+                                </Link>
                             </li>
                         )}
                     </ul>

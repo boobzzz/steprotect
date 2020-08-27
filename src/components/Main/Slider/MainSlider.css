@@ -1,17 +1,21 @@
-.MainSlider .slider {
-    height: 780px;
+.main-slider .slider {
+    height: 100vh;
 }
 
-.MainSlider .slide {
+.main-slider .slide {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--white);
 }
-    .MainSlider .slide h1 {
+    .main-slider .slide h1 {
         max-width: 1200px;
+        margin-top: 100px;
         padding: 0 16px;
         font-weight: 700;
         font-size: 48px;
@@ -19,7 +23,7 @@
     	transform: translateY(-20px);
     	opacity: 0;
     }
-    .MainSlider .slide p {
+    .main-slider .slide p {
         max-width: 1200px;
         margin-top: 10px;
         font-size: 24px;
@@ -28,45 +32,65 @@
         transform: translateY(20px);
     	opacity: 0;
     }
-    .MainSlider .slide div {
+    .main-slider .slide div {
         transform: translateY(20px);
         opacity: 0;
     }
 
 
-.MainSlider .slide.animateIn.previous h1,
-.MainSlider .slide.current h1,
-.MainSlider .slide.animateIn.next h1,
-.MainSlider .slide.animateIn.previous p,
-.MainSlider .slide.current p,
-.MainSlider .slide.animateIn.next p,
-.MainSlider .slide.animateIn.previous div,
-.MainSlider .slide.current div,
-.MainSlider .slide.animateIn.next div {
+.main-slider .slide.animateIn.previous h1,
+.main-slider .slide.current h1,
+.main-slider .slide.animateIn.next h1,
+.main-slider .slide.animateIn.previous p,
+.main-slider .slide.current p,
+.main-slider .slide.animateIn.next p,
+.main-slider .slide.animateIn.previous div,
+.main-slider .slide.current div,
+.main-slider .slide.animateIn.next div {
     transform: translateX(0);
     transition-delay: 0.9s;
     opacity: 1;
 }
 
-.MainSlider .slide.animateIn.previous p,
-.MainSlider .slide.animateIn.next p {
+.main-slider .slide.animateIn.previous p,
+.main-slider .slide.animateIn.next p {
     transition-delay: 1.1s;
 }
 
-.MainSlider .slide.animateIn.previous div,
-.MainSlider .slide.animateIn.next div {
+.main-slider .slide.animateIn.previous div,
+.main-slider .slide.animateIn.next div {
 	transition-delay: 1.3s;
 }
 
-.MainSlider .slide.animateOut h1 {
+.main-slider .slide.animateOut h1 {
     transition-delay: 0.3s;
 }
 
-.MainSlider .slide.animateOut p {
+.main-slider .slide.animateOut p {
     transition-delay: 0.2s;
 }
 
-.MainSlider .slide div:hover,
-.MainSlider .slide.current div {
+.main-slider .slide div:hover,
+.main-slider .slide.current div {
     transition-delay: 0s;
+}
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 767px) {
+    .main-slider .slide h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 575px) {
+    .main-slider .slide h1 {
+        margin-top: 120px;
+    }
+    .main-slider .slide p {
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 460px) {
+    .main-slider .slide h1 {
+        font-size: 28px;
+    }
 }

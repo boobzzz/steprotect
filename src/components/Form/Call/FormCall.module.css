@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 340px; height: 65px;
+    width: 300px; height: 65px;
     margin-top: 10px;
     text-transform: uppercase;
     font-family: inherit;
@@ -35,20 +35,21 @@
     }
 
 .Clicked {
-    width: 420px;
+    width: 400px;
 }
     .Clicked i {
         display: none;
     }
     .Clicked form {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         opacity: 1;
     }
     .Clicked input {
         padding: 0;
         font-family: inherit;
-        width: 300px;
+        width: 260px;
         font-size: 30px;
         line-height: 30px;
         text-align: center;
@@ -60,7 +61,7 @@
     .Clicked form button {
         display: flex;
         align-items: center;
-        margin-left: 5px;
+        margin-left: 10px;
         font-size: 40px;
         border: none;
         background: none;
@@ -77,7 +78,6 @@
         color: var(--white);
     }
 
-
 .Msg {
     font-size: 24px;
     margin-top: 30px;
@@ -89,4 +89,39 @@
 }
 .Success {
     opacity: 1;
+}
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 767px) {
+    .Msg {
+        margin-top: 10px;
+    }
+}
+@media (max-width: 575px) {
+    .Button {
+        margin-top: 0;
+    }
+    .Msg {
+        margin-top: 0;
+    }
+}
+@media (max-width: 460px) {
+    .Clicked {
+        width: 340px;
+    }
+}
+@media (max-width: 360px) {
+    .Clicked {
+        width: 300px;
+    }
+    .Clicked input {
+        font-size: 26px;
+    }
+    .Clicked form button {
+        margin-left: 0;
+        font-size: 30px;
+    }
+    .Msg {
+        font-size: 20px;
+    }
 }

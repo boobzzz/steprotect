@@ -1,121 +1,221 @@
-header {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    padding: 30px 16px;
-    transition: all 0.6s ease;
-    z-index: 100;
-}
-header.Fixed {
-    position: fixed;
-    top: 0; left: 0;
-    padding: 8px 16px;
-    background: var(--red);
-}
-
-.Wrapper {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.Logo {
-    position: relative;
-}
-    .Logo img {
-        height: 170px;
-    }
-    header.Fixed .Logo img {
-        height: 52px;
-    }
-
-.MenuList {
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    height: 100%;
-}
-
-/* --------------------------------Menu Button------------------------------- */
 a:not([href]):not([class]) {
     color: var(--white);
 }
 a:not([href]):not([class]):hover {
     color: var(--red);
 }
-
-.MenuList a {
-    position: relative;
-    display: block;
-    padding: 16px 32px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
+.Fixed a:not([href]):not([class]) {
+    color: #182345;
+}
+.Fixed a:not([href]):not([class]):hover {
     color: var(--white);
-    transition: all 0.3s ease;
 }
 
-header.Fixed .MenuList {
+header {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 32px 16px;
+    transition: all 0.6s ease;
+    z-index: 100;
+}
+header > div {
+    display: flex;
+    justify-content: space-between;
+}
+header.Fixed {
+    position: fixed;
+    top: 0; left: 0;
+    padding: 8px 16px;
+    background: var(--red);
+    /* background: rgba(255, 0, 0, 0.5); */
+}
+
+.Logo {
+    position: relative;
+}
+    header .Logo img {
+        height: 170px;
+    }
+    header.Fixed .Logo img {
+        height: 52px;
+    }
+
+.Hamburger {
+    position: relative;
+    display: none;
+    margin-right: 44px;
+    cursor: pointer;
+    z-index: 1;
+}
+.Fixed .Hamburger {
+    margin-right: 0;
+}
+    .Hamburger span {
+        background: var(--red) !important;
+    }
+    .Fixed .Hamburger span {
+        background: var(--white) !important;
+    }
+    .Hamburger + nav{
+        display: block;
+    }
+    .Hamburger + nav + nav {
+        display: none;
+    }
+    .Hamburger + nav ul {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        height: 100%;
+    }
+    .Hamburger + nav ul a {
+        position: relative;
+        display: block;
+        padding: 16px 32px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--white);
+        transition: all 0.3s ease;
+    }
+
+.Fixed .Hamburger + nav ul {
     align-items: center;
 }
-    header.Fixed .MenuList a {
+    .Fixed .Hamburger + nav ul a {
         color: #182345;
     }
 
-/* ----------------------------Menu Button Animation------------------------- */
-.MenuList a:hover {
+/* ---------------------------Menu Button Animation-------------------------- */
+.Hamburger + nav ul a:hover {
+    text-decoration: none;
     color: var(--red);
 }
-header.Fixed .MenuList a:hover {
+.Fixed .Hamburger + nav ul a:hover {
+    text-decoration: none;
     color: var(--white);
 }
 
-.MenuList a:before,
-.MenuList a:after,
-header.Fixed .MenuList a:before,
-header.Fixed .MenuList a:after {
+.Hamburger + nav ul a:before,
+.Hamburger + nav ul a:after,
+.Fixed .Hamburger + nav ul a:before,
+.Fixed .Hamburger + nav ul a:after {
     content: '';
     position: absolute;
     transition: inherit;
 }
-.MenuList a:before,
-header.Fixed .MenuList a:before {
+.Hamburger + nav ul a:before,
+.Fixed .Hamburger + nav ul a:before {
     top: 0; left: 50%;
     width: 0;
     height: 100%;
 }
-.MenuList a:before {
+.Hamburger + nav ul a:before {
     border-top: 1px solid var(--red);
     border-bottom: 1px solid var(--red);
 }
-header.Fixed .MenuList a:before {
+.Fixed .Hamburger + nav ul a:before {
     border-top: 1px solid var(--white);
     border-bottom: 1px solid var(--white);
 }
-.MenuList a:after,
-header.Fixed .MenuList a:after {
+.Hamburger + nav ul a:after,
+.Fixed .Hamburger + nav ul a:after {
     top: 50%; left: 0;
     width: 100%;
     height: 0;
 }
-.MenuList a:after {
+.Hamburger + nav ul a:after {
     border-left: 1px solid var(--red);
     border-right: 1px solid var(--red);
 }
-header.Fixed .MenuList a:after {
+.Fixed .Hamburger + nav ul a:after {
     border-left: 1px solid var(--white);
     border-right: 1px solid var(--white);
 }
-.MenuList a:hover:before,
-header.Fixed .MenuList a:hover:before {
+.Hamburger + nav ul a:hover:before,
+.Fixed .Hamburger + nav ul a:hover:before {
     left: 0;
     width: 100%;
 }
-.MenuList a:hover:after,
-header.Fixed .MenuList a:hover:after {
+.Hamburger + nav ul a:hover:after,
+.Fixed .Hamburger + nav ul a:hover:after {
     top: 0;
     height: 100%;
+}
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 1199px) {
+    .Hamburger + nav ul a {
+        padding: 16px;
+    }
+}
+@media (max-width: 991px) {
+    a:not([href]):not([class]) {
+        color: var(--white);
+    }
+    a:not([href]):not([class]):hover {
+        color: var(--red);
+    }
+    .Fixed a:not([href]):not([class]) {
+        color: var(--white);
+    }
+    .Fixed a:not([href]):not([class]):hover {
+        color: var(--red);
+    }
+    header {
+        padding: 16px;
+    }
+    header > div {
+        align-items: center;
+    }
+    .Hamburger {
+        display: block;
+    }
+    .Menu nav {
+        position: fixed;
+        top: 0; right: -100%;
+        height: 100%;
+        padding: 180px 0 30px 0;
+        transition: all 0.4s ease;
+    }
+    .Fixed .Menu nav {
+        padding: 68px 0 30px 0;
+    }
+    .Menu.Show nav {
+        right: 0;
+    }
+    .Menu.Show .Hamburger span {
+        background: var(--white) !important;
+    }
+    .Hamburger + nav{
+        display: none;
+    }
+    .Hamburger + nav + nav {
+        display: block;
+        background: var(--red);
+        /* background: rgba(255, 0, 0, 0.5); */
+    }
+    .Hamburger + nav + nav ul {
+        flex-direction: column;
+    }
+    .Hamburger + nav + nav a {
+        display: block;
+        width: 250px;
+        padding: 16px 32px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+    .Hamburger + nav + nav a:hover {
+        background: var(--white);
+        color: var(--red);
+    }
+}
+@media (max-width: 767px) {
+
 }

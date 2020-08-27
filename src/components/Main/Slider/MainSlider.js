@@ -3,7 +3,9 @@ import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 
 import FormCall from '../../../components/Form/Call/FormCall';
+
 import './MainSlider.css';
+
 import slide1 from '../../../assets/images/slider-1-1.jpg';
 import slide2 from '../../../assets/images/slider-1-2.jpg';
 import slide3 from '../../../assets/images/slider-1-3.jpg';
@@ -35,9 +37,9 @@ const slides = [
 
 const MainSlider = (props) => {
     return (
-        <section className='MainSlider'>
+        <section className='main-slider'>
             <Slider
-                autoplay={3000}
+                // autoplay={3000}
                 duration={2000}>
                 {slides.map((slide, i) =>
                     <div key={slide.id} style={{ backgroundImage: `url('${slide.bg}')` }}>

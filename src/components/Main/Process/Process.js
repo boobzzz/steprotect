@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 import classes from './Process.module.css';
 
@@ -29,14 +29,14 @@ const stages = [
 const Process = (props) => {
     return (
         <section id="process" className={classes.Process}>
-            <div className={classes.Wrapper}>
+            <div className="wrapper">
                 <SectionHeader
                     section="Як ми працюємо"
                     title="Замовлення послуги"
                     titleColor="#222" />
                 <p>
                     Телефонуйте за номером
-                    <a href="/#"> +38 (097)769 97 99 </a>
+                    <a href="tel:+380676731457"> +38 (067) 673 14 57 </a>
                     або сформуйте замовлення через наш сайт
                 </p>
                 <div className={classes.Phase}>
