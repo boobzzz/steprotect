@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '../SectionHeader/SectionHeader';
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import ServicesSlider from './Slider/ServicesSlider';
 
 import classes from './Services.module.css';
@@ -12,7 +12,7 @@ const Services = (props) => {
                 <SectionHeader
                     section="Послуги"
                     title="Що ми пропонуємо"
-                    titleColor="#fff"/>
+                    titleColor="#fff" />
                 <ServicesSlider />
             </div>
         </section>

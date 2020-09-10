@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 
 const NavBar = ({ clicked }) => {
@@ -24,6 +25,11 @@ const NavBar = ({ clicked }) => {
                     <Link to="top" smooth={true} duration={500} onClick={clicked}>
                         замовити
                     </Link>
+                </li>
+                <li>
+                    <NavLink to="/blog">
+                        блог
+                    </NavLink>
                 </li>
                 <li>
                     <Link to="contacts" smooth={true} duration={1000}>

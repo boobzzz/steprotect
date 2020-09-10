@@ -1,85 +1,64 @@
 import React from 'react';
 import Slider from "react-slick";
-import { GiCctvCamera } from 'react-icons/gi';
+import { GiCctvCamera, GiNetworkBars, GiSpy } from 'react-icons/gi';
 import { RiAlarmWarningLine } from 'react-icons/ri';
-import { IoMdFingerPrint, IoIosCellular } from 'react-icons/io';
-import { FaInternetExplorer } from 'react-icons/fa';
+import { IoMdFingerPrint } from 'react-icons/io';
+import { FaNetworkWired } from 'react-icons/fa';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './ServicesSlider.css';
 
-// import slide1 from '../../../../assets/images/services-1-1.jpg';
-// import slide2 from '../../../../assets/images/services-1-2.jpg';
-// import slide3 from '../../../../assets/images/services-1-3.jpg';
-// import slide4 from '../../../../assets/images/services-1-4.jpg';
-// import slide5 from '../../../../assets/images/services-1-5.jpg';
-
 const slides = [
     {
         id: 'ss-1',
-        // img: slide1,
-        img: <GiCctvCamera />,
+        icon: <GiCctvCamera />,
         title: 'Відеоспостереження',
-        desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.`
+        desc: `Знімайте та збергайте зображення у форматах Full HD/4K.
+               Записуйте та відтворюйте події з відеореєстратора чи камери.
+               Отримуйте сповіщення у випадку руху в зоні дії відео камери.
+               Встановлюємо провідні та безпровідні системи.`
     },
     {
         id: 'ss-2',
-        // img: slide2,
-        img: <RiAlarmWarningLine />,
-        title: 'Охоронна сигналізація',
-        desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.`
+        icon: <GiSpy />,
+        title: 'Виявлення систем стеження',
+        desc: `Виявлення прихованих засобів зняття інформації. Пошук "жучків",
+               радіо моніторинг, аналіз дротових комунікацій, оптичне зондування,
+               локація нелінійності, фізичний пошук.`
     },
     {
         id: 'ss-3',
-        // img: slide3,
-        img: <IoMdFingerPrint />,
-        title: 'Системи доступу',
-        desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.`
+        icon: <RiAlarmWarningLine />,
+        title: 'Охоронна сигналізація',
+        desc: `Є чудовим стримуючим фактором. Покажіть, що ви серйозно ставитеся
+               до безпеки. Ми працюємо з найсучаснішим та найякіснішим обладнанням.
+               Встановлюємо дротові та бездротові системи.`
     },
     {
         id: 'ss-4',
-        title: 'Інтернет',
-        // img: slide4,
-        img: <FaInternetExplorer />,
-        desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.`
+        icon: <IoMdFingerPrint />,
+        title: 'Системи доступу',
+        desc: `Контролюйте та керуйте входом та виходом людей з будівлі, в’їздом
+               та виїздом транспорту з території. Чому варто встановити?
+               Облік робочого часу, обмеження доступу, контроль пересування.`
     },
     {
         id: 'ss-5',
-        // img: slide5,
-        img: <IoIosCellular />,
+        title: 'Комп\'ютерні мережі',
+        icon: <FaNetworkWired />,
+        desc: `Пропонуємо прокладання комп’ютерних мереж та розширення вже
+               існуючих мереж. Організовуємо такі види мереж: дротові,
+               бездротові та гібридні комп’ютерні мережі.`
+    },
+    {
+        id: 'ss-6',
+        icon: <GiNetworkBars />,
         title: 'GSM зв\'язок',
-        desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.`
+        desc: `Підсилення зв'язку за допомогою антен чи репітерів. Таке
+               обладнання застосовується для забезпечення надійного та
+               стабільного сигналу як для телефонії, так і для бездротового
+               інтернету при використанні 3G/4G LTE мереж.`
     }
 ]
 
@@ -88,7 +67,7 @@ const settings = {
     dots: false,
     autoplay: true,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     className: 'Slider',
@@ -115,8 +94,7 @@ const ServicesSlider = (props) => {
                 <div key={slide.id} className="outer">
                     <div className="inner">
                         <div className="front">
-                            {/* <img src={slide.img} alt=""/> */}
-                            <i>{slide.img}</i>
+                            <i>{slide.icon}</i>
                         </div>
                         <div className="back">
                             <h4>{slide.title}</h4>

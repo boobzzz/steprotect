@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '../SectionHeader/SectionHeader';
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 
 import classes from './Process.module.css';
 

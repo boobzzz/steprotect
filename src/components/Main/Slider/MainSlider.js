@@ -39,7 +39,7 @@ const MainSlider = (props) => {
     return (
         <section className='main-slider'>
             <Slider
-                // autoplay={3000}
+                autoplay={3000}
                 duration={2000}>
                 {slides.map((slide, i) =>
                     <div key={slide.id} style={{ backgroundImage: `url('${slide.bg}')` }}>

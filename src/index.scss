@@ -16,6 +16,9 @@ body {
 a {
     cursor: pointer;
 }
+a:hover {
+    text-decoration: none;
+}
 
 .wrapper {
     max-width: 1200px;

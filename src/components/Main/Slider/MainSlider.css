@@ -24,7 +24,7 @@
     	opacity: 0;
     }
     .main-slider .slide p {
-        max-width: 1200px;
+        max-width: 1000px;
         margin-top: 10px;
         font-size: 24px;
         color: #B2B3BA;
@@ -92,5 +92,10 @@
 @media (max-width: 460px) {
     .main-slider .slide h1 {
         font-size: 28px;
+    }
+}
+@media (max-width: 360px) {
+    .main-slider .slide h1 {
+        font-size: 26px;
     }
 }

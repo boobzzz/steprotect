@@ -35,7 +35,7 @@
     }
 
 .Clicked {
-    width: 400px;
+    width: 420px;
 }
     .Clicked i {
         display: none;
@@ -49,9 +49,8 @@
     .Clicked input {
         padding: 0;
         font-family: inherit;
-        width: 260px;
+        width: 310px;
         font-size: 30px;
-        line-height: 30px;
         text-align: center;
         border: none;
         background: none;
@@ -109,12 +108,8 @@
     .Clicked {
         width: 340px;
     }
-}
-@media (max-width: 360px) {
-    .Clicked {
-        width: 300px;
-    }
     .Clicked input {
+        width: 280px;
         font-size: 26px;
     }
     .Clicked form button {
@@ -123,5 +118,14 @@
     }
     .Msg {
         font-size: 20px;
+    }
+}
+@media (max-width: 360px) {
+    .Clicked {
+        width: 300px;
+    }
+    .Clicked input {
+        width: 250px;
+        font-size: 24px;
     }
 }

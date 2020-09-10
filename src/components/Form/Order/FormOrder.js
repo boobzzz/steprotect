@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import * as U from '../../../utils/api';
 import { css } from "@emotion/core";
+import withConnect from '../../HOC/withConnect';
+import * as selectors from '../redux/selectors';
+import * as actions from '../redux/actions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 import FieldText from '../../UI/Field/Text/FieldText';
@@ -39,21 +41,23 @@ const style = css`
 `
 
 const FormOrder = (props) => {
-    const [ isLoading, setIsLoading ] = useState(false)
+    const { modalShown, status, isLoading, sendOrder, setLoader, resetStatus } = props
     const [ successMsg, setSuccessMsg ] = useState(false)
 
-    const handleSubmit = async (values, {resetForm}) => {
+    useEffect(() => {
+        if (!modalShown) resetStatus()
+
+        status === 'success' ? setSuccessMsg(true) : setSuccessMsg(false)
+    }, [modalShown, status, resetStatus])
+
+    const handleSubmit = (values, {resetForm}) => {
         let options = {
             method: 'POST',
             body: values
         }
 
-        setIsLoading(true)
-        let res = await U.fetchJSON('/order', options)
-        setIsLoading(false)
-
-        res.status === 200 ? setSuccessMsg(true) : setSuccessMsg(false)
-
+        setLoader(true)
+        sendOrder('/order', options)
         resetForm({ values: '' })
     }
 
@@ -72,18 +76,18 @@ const FormOrder = (props) => {
                                 <FieldPhone id="phone" label="номер телефону *" />
                                 <FieldText id="email" type="email" label="електронна скринька *" />
                                 <span className={successMsg
-                                    ? `${classes.Msg} ${classes.Success}`
-                                    : `${classes.Msg} ${classes.Failed}`}>
+                                                 ? `${classes.Msg} ${classes.Success}`
+                                                 : `${classes.Msg} ${classes.Failed}`}>
                                     Замовлення успішно сформовано
                                 </span>
                                 <div className={classes.SubmitBtn}>
                                     {isLoading
-                                    ? <div>
-                                        <Spinner style={style} color="#FF0000" loading={isLoading} />
-                                    </div>
-                                    : <button type="submit">
-                                        замовити
-                                    </button>}
+                                     ? <div>
+                                           <Spinner style={style} color="#FF0000" loading={isLoading} />
+                                       </div>
+                                     : <button type="submit">
+                                           замовити
+                                       </button>}
                                 </div>
                             </Form>
                         )
@@ -94,4 +98,4 @@ const FormOrder = (props) => {
     )
 }
 
-export default FormOrder;
+export default withConnect(FormOrder, selectors, actions);

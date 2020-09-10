@@ -4,7 +4,7 @@ import { RiUserFollowLine } from 'react-icons/ri';
 import { AiOutlineExpand } from 'react-icons/ai';
 import { MdHighQuality } from 'react-icons/md';
 
-import SectionHeader from '../SectionHeader/SectionHeader';
+import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 
 import classes from './About.module.css';
 
@@ -29,7 +29,7 @@ const abouts = [
         title: 'Гнучкість',
         desc: `Нам цікаво робити безпечними площі різного масштабу. Маємо якісний
                досвід роботи з квартирами та будинками, торговими майданчиками
-               та бізнес центрами, виробництвами та складами.`
+               та бізнес центрами, виробництвами та житловими комплексами.`
     },
     {
         id: 4,
@@ -46,7 +46,7 @@ const About = (props) => {
                 <SectionHeader
                     section="Про нас"
                     title="Чому ми?"
-                    titleColor="#222"/>
+                    titleColor="#222" />
                 <div className={classes.Item}>
                     {abouts.map(about =>
                         <div key={about.id}>

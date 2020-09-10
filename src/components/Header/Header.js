@@ -56,7 +56,7 @@ const Header = (props) => {
                 modal={modal}
                 toggle={toggleModal}
                 title="Замовлення"
-                modalBody={<FormOrder />} />
+                modalBody={<FormOrder modalShown={modal} />} />
         </>
     )
 }

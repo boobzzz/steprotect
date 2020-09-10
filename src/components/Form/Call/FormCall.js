@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import * as U from '../../../utils/api';
 import { css } from "@emotion/core";
+import withConnect from '../../HOC/withConnect';
+import * as selectors from '../redux/selectors';
+import * as actions from '../redux/actions';
 
 import Spinner from '../../UI/Spinner/Spinner';
 import FieldPhone from '../../UI/Field/Phone/FieldPhone';
@@ -18,56 +20,54 @@ const style = css`
     width: 200px;
     height: 5px;
 `
-
-const FormCall = ({ slide }) => {
-    const [ call, setCall ] = useState(false)
-    const [ isLoading, setIsLoading ] = useState(false)
+const FormCall = (props) => {
+    const { slide, status, isLoading, sendOrder, setLoader, resetStatus } = props
+    const [ callForm, setCallForm ] = useState(false)
     const [ successMsg, setSuccessMsg ] = useState(false)
 
     useEffect(() => {
         window.addEventListener('click', () => {
-            setCall(false)
+            setCallForm(false)
             setSuccessMsg(false)
+            resetStatus()
         })
-    }, [])
+
+        status === 'success' ? setSuccessMsg(true) : setSuccessMsg(false)
+    }, [status, resetStatus])
 
     const toggleCallOrderBtn = (e) => {
         e.stopPropagation()
-        setCall(true)
+        setCallForm(true)
         setSuccessMsg(false)
     }
 
-    const handleSubmit = async (values, {resetForm}) => {
+    const handleSubmit = (values, {resetForm}) => {
         let options = {
             method: 'POST',
             body: values
         }
 
-        setIsLoading(true)
-        let res = await U.fetchJSON('/call', options)
-        setIsLoading(false)
-
-        res.status === 200 ? setSuccessMsg(true) : setSuccessMsg(false)
-
+        setLoader(true)
+        sendOrder('/call', options)
         resetForm({ values: '' })
     }
 
     return (
         <>
             <span className={successMsg
-                            ? `${classes.Msg} ${classes.Success}`
-                            : `${classes.Msg} ${classes.Failed}`}>
-                Дзвінок успішно замовлено
+                             ? `${classes.Msg} ${classes.Success}`
+                             : `${classes.Msg} ${classes.Failed}`}>
+                Дзвінок замовлено успішно
             </span>
             <div
                 onClick={toggleCallOrderBtn}
-                className={call
-                          ? `${classes.Button} ${classes.Clicked}`
-                          : `${classes.Button}`}>
+                className={callForm
+                           ? `${classes.Button} ${classes.Clicked}`
+                           : `${classes.Button}`}>
                 <i>{slide.btn}</i>
                 {isLoading
-                    ? <Spinner style={style} color="#FF0000" loading={isLoading} />
-                    : <Formik
+                 ? <Spinner style={style} color="#FF0000" loading={isLoading} />
+                 : <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
                         onSubmit={handleSubmit}>
@@ -88,4 +88,4 @@ const FormCall = ({ slide }) => {
     )
 }
 
-export default FormCall;
+export default withConnect(FormCall, selectors, actions)
