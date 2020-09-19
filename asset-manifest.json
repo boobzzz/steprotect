@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/steprotect/static/css/main.037f89b1.chunk.css",
-    "main.js": "/steprotect/static/js/main.5c25e419.chunk.js",
-    "main.js.map": "/steprotect/static/js/main.5c25e419.chunk.js.map",
+    "main.css": "/steprotect/static/css/main.22b0998d.chunk.css",
+    "main.js": "/steprotect/static/js/main.85bb303a.chunk.js",
+    "main.js.map": "/steprotect/static/js/main.85bb303a.chunk.js.map",
     "runtime-main.js": "/steprotect/static/js/runtime-main.a54dd7a4.js",
     "runtime-main.js.map": "/steprotect/static/js/runtime-main.a54dd7a4.js.map",
     "static/css/2.a2a47a97.chunk.css": "/steprotect/static/css/2.a2a47a97.chunk.css",
-    "static/js/2.4d3fcb21.chunk.js": "/steprotect/static/js/2.4d3fcb21.chunk.js",
-    "static/js/2.4d3fcb21.chunk.js.map": "/steprotect/static/js/2.4d3fcb21.chunk.js.map",
+    "static/js/2.23097a75.chunk.js": "/steprotect/static/js/2.23097a75.chunk.js",
+    "static/js/2.23097a75.chunk.js.map": "/steprotect/static/js/2.23097a75.chunk.js.map",
     "index.html": "/steprotect/index.html",
-    "precache-manifest.b0f48c23cf6b3b09ca51d5e986e65ff1.js": "/steprotect/precache-manifest.b0f48c23cf6b3b09ca51d5e986e65ff1.js",
+    "precache-manifest.7eb9b248d0929823116b63b35b920e91.js": "/steprotect/precache-manifest.7eb9b248d0929823116b63b35b920e91.js",
     "service-worker.js": "/steprotect/service-worker.js",
     "static/css/2.a2a47a97.chunk.css.map": "/steprotect/static/css/2.a2a47a97.chunk.css.map",
-    "static/css/main.037f89b1.chunk.css.map": "/steprotect/static/css/main.037f89b1.chunk.css.map",
-    "static/js/2.4d3fcb21.chunk.js.LICENSE.txt": "/steprotect/static/js/2.4d3fcb21.chunk.js.LICENSE.txt",
+    "static/css/main.22b0998d.chunk.css.map": "/steprotect/static/css/main.22b0998d.chunk.css.map",
+    "static/js/2.23097a75.chunk.js.LICENSE.txt": "/steprotect/static/js/2.23097a75.chunk.js.LICENSE.txt",
     "static/media/Services.module.css": "/steprotect/static/media/bg-1-1.a29693bf.jpg",
-    "static/media/blog-1-1.jpg": "/steprotect/static/media/blog-1-1.3565e5d6.jpg",
-    "static/media/blog-1-2.jpg": "/steprotect/static/media/blog-1-2.0d26a58e.jpg",
-    "static/media/blog-1-3.jpg": "/steprotect/static/media/blog-1-3.630a262b.jpg",
+    "static/media/AdminList.module.css": "/steprotect/static/media/bg-1-2.22a92231.jpg",
+    "static/media/BlogList.module.css": "/steprotect/static/media/bg-1-4.8aa08179.jpg",
+    "static/media/BlogDetails.module.css": "/steprotect/static/media/bg-1-5.7f8da564.jpg",
     "static/media/Footer.module.css": "/steprotect/static/media/footer-map-1-1.16a978e1.png",
     "static/media/logo_footer.svg": "/steprotect/static/media/logo_footer.ce5cfc0a.svg",
     "static/media/logo_hr.svg": "/steprotect/static/media/logo_hr.b20353bc.svg",
@@ -25,15 +25,13 @@
     "static/media/slick-theme.css": "/steprotect/static/media/slick.f97e3bbf.svg",
     "static/media/slider-1-1.jpg": "/steprotect/static/media/slider-1-1.4b9ca08f.jpg",
     "static/media/slider-1-2.jpg": "/steprotect/static/media/slider-1-2.2e74f0c1.jpg",
-    "static/media/slider-1-3.jpg": "/steprotect/static/media/slider-1-3.73655932.jpg",
-    "static/media/BlogList.module.css": "/steprotect/static/media/slider-1-4.8aa08179.jpg",
-    "static/media/BlogDetails.module.css": "/steprotect/static/media/slider-1-5.7f8da564.jpg"
+    "static/media/slider-1-3.jpg": "/steprotect/static/media/slider-1-3.73655932.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a54dd7a4.js",
     "static/css/2.a2a47a97.chunk.css",
-    "static/js/2.4d3fcb21.chunk.js",
-    "static/css/main.037f89b1.chunk.css",
-    "static/js/main.5c25e419.chunk.js"
+    "static/js/2.23097a75.chunk.js",
+    "static/css/main.22b0998d.chunk.css",
+    "static/js/main.85bb303a.chunk.js"
   ]
 }
