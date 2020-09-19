@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/steprotect/static/css/main.22b0998d.chunk.css",
-    "main.js": "/steprotect/static/js/main.c69d4fd2.chunk.js",
-    "main.js.map": "/steprotect/static/js/main.c69d4fd2.chunk.js.map",
+    "main.js": "/steprotect/static/js/main.72b87bdd.chunk.js",
+    "main.js.map": "/steprotect/static/js/main.72b87bdd.chunk.js.map",
     "runtime-main.js": "/steprotect/static/js/runtime-main.a54dd7a4.js",
     "runtime-main.js.map": "/steprotect/static/js/runtime-main.a54dd7a4.js.map",
     "static/css/2.a2a47a97.chunk.css": "/steprotect/static/css/2.a2a47a97.chunk.css",
     "static/js/2.f6ff1e22.chunk.js": "/steprotect/static/js/2.f6ff1e22.chunk.js",
     "static/js/2.f6ff1e22.chunk.js.map": "/steprotect/static/js/2.f6ff1e22.chunk.js.map",
     "index.html": "/steprotect/index.html",
-    "precache-manifest.0976bf2cbcf78923b3c81a737a2a3af4.js": "/steprotect/precache-manifest.0976bf2cbcf78923b3c81a737a2a3af4.js",
+    "precache-manifest.da03d26c2e581481bd6a0f97e7080098.js": "/steprotect/precache-manifest.da03d26c2e581481bd6a0f97e7080098.js",
     "service-worker.js": "/steprotect/service-worker.js",
     "static/css/2.a2a47a97.chunk.css.map": "/steprotect/static/css/2.a2a47a97.chunk.css.map",
     "static/css/main.22b0998d.chunk.css.map": "/steprotect/static/css/main.22b0998d.chunk.css.map",
@@ -32,6 +32,6 @@
     "static/css/2.a2a47a97.chunk.css",
     "static/js/2.f6ff1e22.chunk.js",
     "static/css/main.22b0998d.chunk.css",
-    "static/js/main.c69d4fd2.chunk.js"
+    "static/js/main.72b87bdd.chunk.js"
   ]
 }
