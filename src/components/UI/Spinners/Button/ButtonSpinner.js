@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarLoader } from 'react-spinners';
 
-const Spinner = (props) => {
+const ButtonSpinner = (props) => {
     const { style, color, loading } = props
 
     return (
@@ -9,4 +9,4 @@ const Spinner = (props) => {
     )
 }
 
-export default Spinner;
+export default ButtonSpinner;

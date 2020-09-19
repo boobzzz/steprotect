@@ -6,13 +6,15 @@ import withConnect from '../../HOC/withConnect';
 import * as selectors from '../redux/selectors';
 import * as actions from '../redux/actions';
 
-import Spinner from '../../UI/Spinner/Spinner';
+import ButtonSpinner from '../../UI/Spinners/Button/ButtonSpinner';
 import FieldPhone from '../../UI/Field/Phone/FieldPhone';
 import { GoArrowRight } from 'react-icons/go';
 
 import classes from './FormCall.module.css';
 
-const initialValues = {phone: ''}
+const initialValues = {
+    phone: ''
+}
 const validationSchema = Yup.object({
     phone: Yup.string().min(13, 'Номер телефону надто короткий *')
 })
@@ -66,7 +68,10 @@ const FormCall = (props) => {
                            : `${classes.Button}`}>
                 <i>{slide.btn}</i>
                 {isLoading
-                 ? <Spinner style={style} color="#FF0000" loading={isLoading} />
+                 ? <ButtonSpinner
+                        style={style}
+                        color="#FF0000"
+                        loading={isLoading} />
                  : <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}

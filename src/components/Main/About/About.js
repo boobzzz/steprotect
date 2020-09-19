@@ -1,7 +1,6 @@
 import React from 'react';
 import { GiWeightLiftingUp } from 'react-icons/gi';
-import { RiUserFollowLine } from 'react-icons/ri';
-import { AiOutlineExpand } from 'react-icons/ai';
+import { RiUserFollowLine, RiFullscreenExitLine } from 'react-icons/ri';
 import { MdHighQuality } from 'react-icons/md';
 
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
@@ -25,7 +24,7 @@ const abouts = [
     },
     {
         id: 3,
-        icon: <AiOutlineExpand />,
+        icon: <RiFullscreenExitLine />,
         title: 'Гнучкість',
         desc: `Нам цікаво робити безпечними площі різного масштабу. Маємо якісний
                досвід роботи з квартирами та будинками, торговими майданчиками

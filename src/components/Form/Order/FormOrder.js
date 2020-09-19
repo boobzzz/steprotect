@@ -6,7 +6,7 @@ import withConnect from '../../HOC/withConnect';
 import * as selectors from '../redux/selectors';
 import * as actions from '../redux/actions';
 
-import Spinner from '../../UI/Spinner/Spinner';
+import ButtonSpinner from '../../UI/Spinners/Button/ButtonSpinner';
 import FieldText from '../../UI/Field/Text/FieldText';
 import FieldPhone from '../../UI/Field/Phone/FieldPhone';
 import FieldSelect from '../../UI/Field/Select/FieldSelect';
@@ -83,7 +83,10 @@ const FormOrder = (props) => {
                                 <div className={classes.SubmitBtn}>
                                     {isLoading
                                      ? <div>
-                                           <Spinner style={style} color="#FF0000" loading={isLoading} />
+                                           <ButtonSpinner
+                                               style={style}
+                                               color="#FF0000"
+                                               loading={isLoading} />
                                        </div>
                                      : <button type="submit">
                                            замовити

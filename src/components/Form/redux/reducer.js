@@ -7,6 +7,11 @@ const orderReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
+        case 'RESET_STATUS':
+            return {
+                ...state,
+                status: ''
+            }
         case 'SET_LOADER':
             return {
                 ...state,
@@ -17,11 +22,6 @@ const orderReducer = (state = initialState, action) => {
                 ...state,
                 status: payload.status,
                 isLoading: false
-            }
-        case 'RESET_STATUS':
-            return {
-                ...state,
-                status: ''
             }
         default:
             return state

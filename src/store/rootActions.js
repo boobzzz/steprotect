@@ -1,4 +1,4 @@
-import * as F from '../utils/fetch.js';
+import * as F from '../utils/api/fetch.js';
 
 export const fetchAction = (url, options, type) => async (dispatch) => {
     const res = await F.fetchJSON(url, options)

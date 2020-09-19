@@ -1,44 +1,61 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import { css } from "@emotion/core";
+import withConnect from '../../HOC/withConnect';
+import * as selectors from '../redux/selectors';
+import * as actions from '../redux/actions';
+import * as C from '../../../utils/api/constants';
 
+import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import classes from './BlogDetails.module.css';
 
+const style = css`
+    margin: auto;
+`
+
 const BlogDetails = (props) => {
+    const { isLoading, currentPost, setLoader, readPost } = props
+    const { id } = useParams()
+
+    useEffect(() => {
+        setLoader(true)
+        readPost(`${C.API_ENDPOINT}/posts/${id}`)
+    }, [id, readPost, setLoader])
+
     return (
-        <div className={classes.BlogDetails}>
-            <div className={classes.Header}>
-                <h2>Детально</h2>
-                <div>
-                    <NavLink to="/">Головна</NavLink>
-                    <span>/</span>
-                    <NavLink to="/blog">Блог</NavLink>
-                    <span>/</span>
-                    <NavLink to="/blog/post/:id">Детально</NavLink>
+        <main>
+            <section className={classes.BlogDetails}>
+                <div className={classes.Header}>
+                    <h2>Детально</h2>
+                    <div>
+                        <NavLink to="/">Головна</NavLink>
+                        <span>/</span>
+                        <NavLink to="/blog">Блог</NavLink>
+                        <span>/</span>
+                        <NavLink to="/blog/post/:id">Детально</NavLink>
+                    </div>
                 </div>
-            </div>
-            <article className={`wrapper ${classes.Post}`}>
-                <SectionHeader
-                    section="Пост"
-                    title="Безпека - це знати"
-                    titleColor="#222" />
-                <div >
-                    <p>Ми не можемо бути в усіх потрібних локаціях одночасно. Але
-                       ми можемо бачити що відбувається в режимі реального часу з
-                       телефону. І це чудово!</p>
-                    <p>Адже всього два кліки і можна перевірити:</p>
-                    <p>Чи в безпеці діти, які бавляться на подвір’ї, поки батьки готують їжу.</p>
-                    <p>Чи добре справляється зі своїми обов’язками няня вашої дитини.</p>
-                    <p>Чи все гаразд з найріднішими, які в поважному віці і живуть далеко.</p>
-                    <p>Чи вчасно розпочали роботу працівники вашого бізнесу.</p>
-                    <p>Чи немає сторонніх людей на території важливих для вас будівель.</p>
-                    <p>Сучасні технології дозволяють перевірити безпеку усього, що
-                       для вас важливо безпосередньо зі смартфону чи планшета.</p>
-                    <p>Телефонуйте зараз +38 (067)673-14-57, та переконайтесь, що безпека – це знати.</p>
-                </div>
-            </article>
-        </div>
+                <article className={`wrapper ${classes.Post}`}>
+                    {isLoading
+                    ? <PageSpinner
+                          style={style}
+                          size={60}
+                          margin={8}
+                          color="#FF0000"
+                          loading={isLoading} />
+                    : <div>
+                          <SectionHeader
+                              section="Пост"
+                              title={currentPost.title}
+                              titleColor="#222" />
+                          <p>{currentPost.text}</p>
+                      </div>}
+                </article>
+            </section>
+        </main>
     )
 }
 
-export default BlogDetails;
+export default withConnect(BlogDetails, selectors, actions);

@@ -26,7 +26,7 @@ header > div {
 header.Fixed {
     position: fixed;
     top: 0; left: 0;
-    padding: 8px 16px;
+    padding: 5px 16px;
     background: var(--red);
     /* background: rgba(255, 0, 0, 0.5); */
 }
@@ -35,10 +35,10 @@ header.Fixed {
     position: relative;
 }
     header .Logo img {
-        height: 170px;
+        height: 150px;
     }
     header.Fixed .Logo img {
-        height: 52px;
+        height: 50px;
     }
 
 .Hamburger {
@@ -72,7 +72,7 @@ header.Fixed {
     .Hamburger + nav ul a {
         position: relative;
         display: block;
-        padding: 16px 32px;
+        padding: 15px 30px;
         font-weight: 700;
         font-size: 20px;
         line-height: 20px;
@@ -91,7 +91,7 @@ header.Fixed {
 
 /* ---------------------------Menu Button Animation-------------------------- */
 .Hamburger + nav ul a:hover {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: var(--red);
 }
 .Fixed .Hamburger + nav ul a:hover {
@@ -149,7 +149,7 @@ header.Fixed {
 /* ------------------------------Media Queries------------------------------- */
 @media (max-width: 1199px) {
     .Hamburger + nav ul a {
-        padding: 16px;
+        padding: 15px;
     }
 }
 @media (max-width: 991px) {

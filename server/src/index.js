@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import cors from 'cors';
 
 import * as MC from './controllers/MailController';
 import * as PC from './controllers/PostController';
@@ -8,8 +9,8 @@ import './config/database';
 const app = express();
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
-
 app.use(express.json())
+app.use(cors())
 
 //-------------------------------Mailer routes----------------------------------
 app.post('/call', MC.sendNewCall)

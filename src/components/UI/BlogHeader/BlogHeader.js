@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogForm = (props) => {
+const BlogHeader = (props) => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const BlogForm = (props) => {
     )
 }
 
-export default BlogForm;
+export default BlogHeader;

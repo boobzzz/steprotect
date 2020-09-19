@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const PostSchema = new Schema(
     {
+        img: String,
         title: String,
         text: String
     }

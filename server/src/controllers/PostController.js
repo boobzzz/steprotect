@@ -12,12 +12,13 @@ export const createPost = (req, res) => {
     const data = req.body
 
     const post = new PostModel({
+        img: data.img,
         title: data.title,
         text: data.text
     })
 
     post.save().then(() => {
-        res.send({ status: 'ok' })
+        res.send({ status: 'success' })
     }).catch((err) => {
         res.send(err)
     })
@@ -37,16 +38,16 @@ export const updatePost = (req, res) => {
     PostModel.findByIdAndUpdate(req.params.id, {$set: req.body}, err => {
         if (err) return res.send(err)
 
-        res.json({ status: 'updated' })
+        res.json({ status: 'success' })
     })
 }
 
 export const deletePost = (req, res) => {
-    PostModel.remove({
+    PostModel.deleteOne({
         _id: req.params.id
     }).then(post => {
         post
-        ? res.json({ status: 'deleted' })
-        : res.json({ status: 'failed' })
+        ? res.json(req.params.id)
+        : res.json({ status: 'failed to delete' })
     })
 }

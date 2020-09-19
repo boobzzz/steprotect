@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from "react-slick";
-import { GiCctvCamera, GiNetworkBars, GiSpy } from 'react-icons/gi';
+import { GiCctvCamera, GiSpy } from 'react-icons/gi';
 import { RiAlarmWarningLine } from 'react-icons/ri';
 import { IoMdFingerPrint } from 'react-icons/io';
-import { FaNetworkWired } from 'react-icons/fa';
+import { FaNetworkWired, FaSignal } from 'react-icons/fa';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,7 +24,7 @@ const slides = [
         icon: <GiSpy />,
         title: 'Виявлення систем стеження',
         desc: `Виявлення прихованих засобів зняття інформації. Пошук "жучків",
-               радіо моніторинг, аналіз дротових комунікацій, оптичне зондування,
+               радіо моніторинг, аналіз дротових комунікацій, оптичне зондування, 
                локація нелінійності, фізичний пошук.`
     },
     {
@@ -53,7 +53,7 @@ const slides = [
     },
     {
         id: 'ss-6',
-        icon: <GiNetworkBars />,
+        icon: <FaSignal />,
         title: 'GSM зв\'язок',
         desc: `Підсилення зв'язку за допомогою антен чи репітерів. Таке
                обладнання застосовується для забезпечення надійного та
