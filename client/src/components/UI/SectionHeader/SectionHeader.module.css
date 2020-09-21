@@ -1,0 +1,21 @@
+.Header span {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--red);
+}
+.Header span::before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 2px;
+    margin-right: 20px;
+    vertical-align: middle;
+    background: var(--red);
+}
+.Header h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 42px;
+}

@@ -1,0 +1,44 @@
+.modal-dialog {
+    max-width: 400px;
+}
+
+.modal-content {
+    --red: #FF0000;
+    --white: #fff;
+    --h5: #182345;
+    border-radius: 0;
+    background: var(--white);
+}
+
+.modal-header {
+    padding: 25px;
+    border-bottom: none;
+}
+    .modal-header h5 {
+        font-weight: 600;
+        font-size: 30px;
+        color: var(--h5);
+    }
+
+.modal-body {
+    padding: 25px;
+}
+
+.closeBtn {
+    width: 40px; height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    border: none;
+    background: none;
+    color: var(--red);
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+.closeBtn:hover {
+    background: var(--red);
+    opacity: 1;
+    color: var(--white);
+}
+.closeBtn:focus {
+    outline: none;
+}

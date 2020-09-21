@@ -1,0 +1,131 @@
+.Button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; height: 65px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    border: 2px solid var(--red);
+    color: var(--red);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+    .Button label {
+        display: none;
+    }
+    .Button form {
+        display: none;
+        opacity: 0;
+        transition: inherit;
+    }
+    .Button i {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .Button:hover {
+        background: var(--red);
+        color: var(--white);
+    }
+    .Button input + div {
+        text-transform: none;
+        font-size: 14px;
+        color: var(--white);
+    }
+
+.Clicked {
+    width: 420px;
+}
+    .Clicked i {
+        display: none;
+    }
+    .Clicked form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1;
+    }
+    .Clicked input {
+        padding: 0;
+        font-family: inherit;
+        width: 310px;
+        font-size: 30px;
+        text-align: center;
+        border: none;
+        background: none;
+        color: var(--red);
+        outline: none;
+    }
+    .Clicked form button {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        font-size: 40px;
+        border: none;
+        background: none;
+        color: var(--red);
+        outline: none;
+        transition: inherit;
+    }
+    .Clicked:hover,
+    .Clicked:hover form div {
+        background: none;
+    }
+    .Clicked form button:hover {
+        background: var(--red);
+        color: var(--white);
+    }
+
+.Msg {
+    font-size: 24px;
+    margin-top: 30px;
+    color: var(--red);
+}
+.Failed {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.Success {
+    opacity: 1;
+}
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 767px) {
+    .Msg {
+        margin-top: 10px;
+    }
+}
+@media (max-width: 575px) {
+    .Button {
+        margin-top: 0;
+    }
+    .Msg {
+        margin-top: 0;
+    }
+}
+@media (max-width: 460px) {
+    .Clicked {
+        width: 340px;
+    }
+    .Clicked input {
+        width: 280px;
+        font-size: 26px;
+    }
+    .Clicked form button {
+        margin-left: 0;
+        font-size: 30px;
+    }
+    .Msg {
+        font-size: 20px;
+    }
+}
+@media (max-width: 360px) {
+    .Clicked {
+        width: 300px;
+    }
+    .Clicked input {
+        width: 250px;
+        font-size: 24px;
+    }
+}
