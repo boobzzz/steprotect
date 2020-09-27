@@ -1,8 +1,8 @@
-.slick-list {
+.Slider .slick-list {
     margin: 0 -15px;
     padding: 60px 0;
 }
-.slick-slide > div {
+.Slider .slick-slide > div {
     padding: 0 15px;
 }
 

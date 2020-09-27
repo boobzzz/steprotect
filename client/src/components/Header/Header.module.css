@@ -1,16 +1,3 @@
-a:not([href]):not([class]) {
-    color: var(--white);
-}
-a:not([href]):not([class]):hover {
-    color: var(--red);
-}
-.Fixed a:not([href]):not([class]) {
-    color: #182345;
-}
-.Fixed a:not([href]):not([class]):hover {
-    color: var(--white);
-}
-
 header {
     position: absolute;
     top: 0; left: 0;
@@ -28,7 +15,6 @@ header.Fixed {
     top: 0; left: 0;
     padding: 5px 16px;
     background: var(--red);
-    /* background: rgba(255, 0, 0, 0.5); */
 }
 
 .Logo {
@@ -72,13 +58,14 @@ header.Fixed {
     .Hamburger + nav ul a {
         position: relative;
         display: block;
-        padding: 15px 30px;
+        padding: 15px 20px;
         font-weight: 600;
         font-size: 20px;
         line-height: 20px;
         text-transform: uppercase;
         text-decoration: none;
         color: var(--white);
+        white-space: nowrap;
         transition: all 0.3s ease;
     }
 
@@ -112,12 +99,12 @@ header.Fixed {
     height: 100%;
 }
 .Hamburger + nav ul a::before {
-    border-top: 1px solid var(--red);
-    border-bottom: 1px solid var(--red);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
 }
 .Fixed .Hamburger + nav ul a::before {
-    border-top: 1px solid var(--white);
-    border-bottom: 1px solid var(--white);
+    border-top: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
 }
 .Hamburger + nav ul a::after,
 .Fixed .Hamburger + nav ul a::after {
@@ -126,12 +113,12 @@ header.Fixed {
     height: 0;
 }
 .Hamburger + nav ul a::after {
-    border-left: 1px solid var(--red);
-    border-right: 1px solid var(--red);
+    border-left: 2px solid var(--red);
+    border-right: 2px solid var(--red);
 }
 .Fixed .Hamburger + nav ul a::after {
-    border-left: 1px solid var(--white);
-    border-right: 1px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-right: 2px solid var(--white);
 }
 .Hamburger + nav ul a:hover::before,
 .Fixed .Hamburger + nav ul a:hover::before {
@@ -151,18 +138,6 @@ header.Fixed {
     }
 }
 @media (max-width: 991px) {
-    a:not([href]):not([class]) {
-        color: var(--white);
-    }
-    a:not([href]):not([class]):hover {
-        color: var(--red);
-    }
-    .Fixed a:not([href]):not([class]) {
-        color: var(--white);
-    }
-    .Fixed a:not([href]):not([class]):hover {
-        color: var(--red);
-    }
     header {
         padding: 16px;
     }
@@ -180,7 +155,7 @@ header.Fixed {
         transition: all 0.4s ease;
     }
     .Fixed .Menu nav {
-        padding: 68px 0 30px 0;
+        padding: 60px 0 30px 0;
     }
     .Menu.Show nav {
         right: 0;
@@ -194,7 +169,6 @@ header.Fixed {
     .Hamburger + nav + nav {
         display: block;
         background: var(--red);
-        /* background: rgba(255, 0, 0, 0.5); */
     }
     .Hamburger + nav + nav ul {
         flex-direction: column;
@@ -207,13 +181,11 @@ header.Fixed {
         font-size: 20px;
         line-height: 20px;
         text-transform: uppercase;
+        color: var(--white);
         transition: all 0.3s ease;
     }
     .Hamburger + nav + nav a:hover {
         background: var(--white);
         color: var(--red);
     }
-}
-@media (max-width: 767px) {
-
 }

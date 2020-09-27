@@ -23,5 +23,5 @@ app.get('/posts/:id', PC.readPost)
 app.put('/posts/:id', PC.updatePost)
 app.delete('/posts/:id', PC.deletePost)
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3030
 app.listen(PORT, () => console.info(`Server has started on ${PORT} port`))
