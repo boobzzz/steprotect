@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import withConnect from '../../../HOC/withConnect';
-import * as selectors from '../../redux/selectors';
-import * as actions from '../../redux/actions';
+import { connect } from 'react-redux';
+import * as S from '../../redux/selectors';
+import * as A from '../../redux/actions';
 import * as C from '../../../../utils/api/constants';
 
 import PageSpinner from '../../../UI/Spinners/Page/PageSpinner';
@@ -10,7 +10,7 @@ import Button from '../../../UI/Buttons/Button/Button';
 import classes from './AdminList.module.css';
 
 const AdminList = (props) => {
-    const { isLoading, posts, setLoader, getPosts } = props
+    const { posts, isLoading, setLoader, getPosts } = props
 
     useEffect(() => {
         setLoader(true)
@@ -47,4 +47,18 @@ const AdminList = (props) => {
     )
 }
 
-export default withConnect(AdminList, selectors, actions);
+const mapStateToProps = (state) => {
+    return {
+        posts: S.posts(state),
+        isLoading: S.isLoading(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getPosts: (url, options) => dispatch(A.getPosts(url, options)),
+        setLoader: (loading) => dispatch(A.setLoader(loading))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminList);

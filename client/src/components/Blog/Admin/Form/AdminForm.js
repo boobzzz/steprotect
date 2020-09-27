@@ -3,9 +3,9 @@ import { useParams } from 'react-router';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
-import withConnect from '../../../HOC/withConnect';
-import * as selectors from '../../redux/selectors';
-import * as actions from '../../redux/actions';
+import { connect } from 'react-redux';
+import * as S from '../../redux/selectors';
+import * as A from '../../redux/actions';
 import * as C from '../../../../utils/api/constants';
 
 import ButtonSpinner from '../../../UI/Spinners/Button/ButtonSpinner';
@@ -119,4 +119,22 @@ const AdminForm = (props) => {
     )
 }
 
-export default withConnect(AdminForm, selectors, actions);
+const mapStateToProps = (state) => {
+    return {
+        currentPost: S.currentPost(state),
+        status: S.status(state),
+        isLoading: S.isLoading(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createPost: (url, options) => dispatch(A.createPost(url, options)),
+        readPost: (url, options) => dispatch(A.readPost(url, options)),
+        updatePost: (url, options) => dispatch(A.updatePost(url, options)),
+        setLoader: (loading) => dispatch(A.setLoader(loading)),
+        resetStatus: () => dispatch(A.resetStatus())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminForm);

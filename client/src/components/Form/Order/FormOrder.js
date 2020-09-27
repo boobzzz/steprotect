@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
-import withConnect from '../../HOC/withConnect';
-import * as selectors from '../redux/selectors';
-import * as actions from '../redux/actions';
+import { connect } from 'react-redux';
+import * as S from '../redux/selectors';
+import * as A from '../redux/actions';
 
 import ButtonSpinner from '../../UI/Spinners/Button/ButtonSpinner';
 import FieldText from '../../UI/Field/Text/FieldText';
@@ -101,4 +101,19 @@ const FormOrder = (props) => {
     )
 }
 
-export default withConnect(FormOrder, selectors, actions);
+const mapStateToProps = (state) => {
+    return {
+        status: S.status(state),
+        isLoading: S.isLoading(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
+        setLoader: (loading) => dispatch(A.setLoader(loading)),
+        resetStatus: () => dispatch(A.resetStatus())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormOrder);

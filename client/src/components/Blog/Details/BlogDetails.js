@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import withConnect from '../../HOC/withConnect';
-import * as selectors from '../redux/selectors';
-import * as actions from '../redux/actions';
+import { connect } from 'react-redux';
+import * as S from '../redux/selectors';
+import * as A from '../redux/actions';
 import * as C from '../../../utils/api/constants';
 
 import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
@@ -11,7 +11,7 @@ import SectionHeader from '../../UI/SectionHeader/SectionHeader';
 import classes from './BlogDetails.module.css';
 
 const BlogDetails = (props) => {
-    const { isLoading, currentPost, setLoader, readPost } = props
+    const { currentPost, isLoading, readPost, setLoader } = props
     const { id } = useParams()
 
     useEffect(() => {
@@ -53,4 +53,18 @@ const BlogDetails = (props) => {
     )
 }
 
-export default withConnect(BlogDetails, selectors, actions);
+const mapStateToProps = (state) => {
+    return {
+        currentPost: S.currentPost(state),
+        isLoading: S.isLoading(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        readPost: (url, options) => dispatch(A.readPost(url, options)),
+        setLoader: (loading) => dispatch(A.setLoader(loading))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogDetails);

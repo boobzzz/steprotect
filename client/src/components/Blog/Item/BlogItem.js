@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
-import withConnect from '../../HOC/withConnect';
-import * as actions from '../redux/actions';
+import { connect } from 'react-redux';
+import * as A from '../redux/actions';
 
 import Button from '../../UI/Buttons/Button/Button';
 import DetailsBtn from '../../UI/Buttons/DetailsBtn/DetailsBtn';
@@ -43,4 +43,10 @@ const BlogItem = (props) => {
     )
 }
 
-export default withConnect(BlogItem, null, actions);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (url, options) => dispatch(A.deletePost(url, options))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(BlogItem);
