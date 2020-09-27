@@ -9,4 +9,10 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+transporter.verify((err, success) => {
+    err
+    ? console.log('Error with the connection...')
+    : console.log('Server is ready to take messages...')
+})
+
 export default transporter;

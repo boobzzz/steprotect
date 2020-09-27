@@ -1,11 +1,5 @@
 import transporter from '../config/transporter';
 
-transporter.verify((err, success) => {
-    err
-    ? console.log('Error with the connection')
-    : console.log('Server is ready to take messages!')
-})
-
 const mailer = (mail, response) => {
     transporter.sendMail(mail, (err, data) => {
         err

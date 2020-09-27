@@ -58,3 +58,24 @@
         text-align: justify;
         font-size: 20px;
     }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 991px) {
+    .Post {
+        padding: 40px 16px;
+    }
+}
+@media (max-width: 767px) {
+    .Header {
+        height: 50vh;
+    }
+}
+@media (max-width: 460px) {
+    .Post h2 {
+        font-size: 28px;
+    }
+    .Post p {
+        margin-top: 40px;
+        font-size: 18px;
+    }
+}

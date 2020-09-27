@@ -74,6 +74,9 @@
     }
 }
 @media (max-width: 767px) {
+    .Header {
+        height: 50vh;
+    }
     .List {
         grid-template-columns: 1fr;
     }

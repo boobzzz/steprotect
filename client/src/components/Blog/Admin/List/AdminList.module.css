@@ -5,6 +5,10 @@
     height: 500px;
 }
 
+.AdminList {
+    background: var(--ms-bg);
+}
+
 .Header {
     position: relative;
     display: flex;
@@ -33,7 +37,6 @@
 
 .Content {
     padding: 70px 16px 100px;
-    background: #EBF0EB;
 }
 
 .List {
@@ -51,4 +54,8 @@
     .Button a {
         grid-column-start: 2;
         width: 100%; height: 60px;
+        border: 4px solid var(--red);
+    }
+    .Button a:hover {
+        border: 4px solid var(--red);
     }

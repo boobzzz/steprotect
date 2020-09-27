@@ -22,7 +22,7 @@ const BlogList = (props) => {
             {isLoading
             ? <div className={classes.Spinner}>
                   <PageSpinner
-                      size={100}
+                      size={60}
                       color="#FF0000"
                       loading={isLoading} />
               </div>

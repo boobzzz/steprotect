@@ -26,7 +26,7 @@ const AdminList = (props) => {
                       color="#FF0000"
                       loading={isLoading} />
               </div>
-            : <section>
+            : <section className={classes.AdminList}>
                   <div className={classes.Header}>
                       <h2>Адміністрування</h2>
                   </div>
