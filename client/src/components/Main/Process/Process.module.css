@@ -1,6 +1,6 @@
 .Process {
     padding: 70px 16px;
-    background: #EBF0EB;
+    background: var(--ms-bg);
 }
     .Process > div > p {
         margin-bottom: 70px;
@@ -43,3 +43,27 @@
         text-align: justify;
         color: var(--text);
     }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 991px) {
+    .Process {
+        padding: 40px 16px;
+    }
+    .Process > div > p {
+        margin-bottom: 40px;
+    }
+    .Phase {
+        grid-template-columns: 1fr;
+        grid-gap: 6vw;
+        margin: 40px 0;
+    }
+    .Phase h3 {
+        min-height: 0;
+        margin: 10px 0;
+    }
+}
+@media (max-width: 460px) {
+    .Process > div > p {
+        font-size: 20px;
+    }
+}

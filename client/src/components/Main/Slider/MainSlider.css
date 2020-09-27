@@ -9,15 +9,13 @@
     position: relative;
     height: 100vh;
 }
-
-.MainSlide img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
+    .MainSlide img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 
 .Content {
     display: flex;
@@ -41,6 +39,7 @@
     .Content p {
         max-width: 1000px;
         margin-top: 10px;
+        padding: 0 16px;
         font-size: 24px;
         text-align: center;
         color: #B2B3BA;
@@ -60,37 +59,45 @@
     transform: translateX(0);
     opacity: 1;
 }
-.slick-current .Content.animateIn p {
+.slick-current .Content.animateIn h1 {
     transition-delay: 0.2s;
 }
-
-.slick-current .Content.animateIn div {
-	transition-delay: 0.4s;
+.slick-current .Content.animateIn p {
+    transition-delay: 0.4s;
 }
-
 .slick-current .Content.animateOut h1 {
     transition-delay: 0.3s;
 }
-
 .slick-current .Content.animateOut p {
     transition-delay: 0.2s;
 }
 
-.slick-current .Content div:hover,
-.slick-current .Content.animateIn div {
-    transition-delay: 0s;
-}
-
 /* ------------------------------Media Queries------------------------------- */
+@media (max-width: 992px) {
+    .Content p {
+        max-width: 750px;
+    }
+}
 @media (max-width: 767px) {
-
+    .Content p {
+        max-width: 550px;
+    }
 }
 @media (max-width: 575px) {
-
+    .Content h1 {
+        font-size: 40px;
+    }
+    .Content p {
+        font-size: 20px;
+    }
 }
 @media (max-width: 460px) {
-
-}
-@media (max-width: 360px) {
-
+    .Content h1 {
+        margin-top: 50px;
+        font-size: 26px;
+    }
+    .Content p {
+        margin-top: 0;
+        font-size: 18px;
+    }
 }

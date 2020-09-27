@@ -141,6 +141,9 @@ header.Fixed {
     header {
         padding: 16px;
     }
+    header .Logo img {
+        height: 100px;
+    }
     header > div {
         align-items: center;
     }
@@ -187,5 +190,10 @@ header.Fixed {
     .Hamburger + nav + nav a:hover {
         background: var(--white);
         color: var(--red);
+    }
+}
+@media (max-width: 575px) {
+    .Hamburger {
+        margin-right: 20px;
     }
 }

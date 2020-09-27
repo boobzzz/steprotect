@@ -6,7 +6,7 @@
 }
 
 .BlogList {
-    background: #EBF0EB;
+    background: var(--ms-bg);
 }
 
 .Header {
@@ -59,3 +59,22 @@
     .List > div div:first-child > a {
         display: none;
     }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 1199px) {
+    .List {
+        grid-gap: 1vw;
+    }
+}
+@media (max-width: 991px) {
+    .List {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3vw;
+        padding: 40px 16px 100px;
+    }
+}
+@media (max-width: 767px) {
+    .List {
+        grid-template-columns: 1fr;
+    }
+}

@@ -8,7 +8,7 @@ footer {
 footer > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10vw;
+    grid-gap: 10vw;
 }
 
 /* -----------------------------------Logo------------------------------------*/
@@ -116,4 +116,35 @@ footer > div {
 }
 .Articles a:hover img {
     filter: brightness(100%);
+}
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 1199px) {
+    footer > div {
+        grid-gap: 3vw;
+    }
+}
+@media (max-width: 991px) {
+    footer > div {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10vw;
+    }
+    .Articles {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    footer > div {
+        display: block;
+    }
+    .Logo > a {
+        display: flex;
+        justify-content: center;
+    }
+    .Logo img {
+        height: 100px;
+    }
+    .Services {
+        display: none;
+    }
 }
