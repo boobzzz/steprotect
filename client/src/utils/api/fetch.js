@@ -1,5 +1,5 @@
 // import mergeDeep from 'lodash.merge'
-import mergeDeep from '@bit/lodash.lodash.merge'
+import { merge as mergeDeep } from 'lodash';
 
 //Fetch JSON
 export const fetchJSON = async (url, options = {}) => {
