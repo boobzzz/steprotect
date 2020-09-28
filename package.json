@@ -11,6 +11,7 @@
     "nodemailer": "^6.4.11"
   },
   "scripts": {
+    "start": "node ./src/index.js",
     "watch": "nodemon --exec babel-node ./src/index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
