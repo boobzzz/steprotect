@@ -1,4 +1,4 @@
-import transporter from '../config/transporter';
+import transporter from '../config/transporter.js';
 
 const mailer = (mail, response) => {
     transporter.sendMail(mail, (err, data) => {

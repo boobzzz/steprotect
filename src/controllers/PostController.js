@@ -1,4 +1,4 @@
-import PostModel from '../models/Post';
+import PostModel from '../models/Post.js';
 
 export const indexPost = (req, res) => {
     PostModel.find().then((err, posts) => {

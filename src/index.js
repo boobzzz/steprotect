@@ -2,9 +2,9 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 
-import * as MC from './controllers/MailController';
-import * as PC from './controllers/PostController';
-import './config/database';
+import * as MC from './controllers/MailController.js';
+import * as PC from './controllers/PostController.js';
+import './config/database.js';
 // import routes from './controllers/routes';
 
 const app = express();
