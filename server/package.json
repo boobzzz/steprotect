@@ -12,7 +12,7 @@
   },
   "scripts": {
     "watch": "nodemon --exec babel-node ./src/index.js",
-    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
