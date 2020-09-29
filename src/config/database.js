@@ -9,7 +9,7 @@ const options = {
 
 // mongoose.connect('mongodb://localhost:27017/blog', options)
 mongoose.connect('mongodb+srv://boooble:aid261282@clustersteprotect.nobjr.mongodb.net/blog?retryWrites=true&w=majority', options)
-console.log(process.env.DB_URI)
+
 mongoose.connection.on('connected', () => {
     console.log('Mongo database connected...')
 })
