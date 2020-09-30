@@ -7,7 +7,6 @@ import favicon from 'serve-favicon';
 import * as MC from './controllers/MailController.js';
 import * as PC from './controllers/PostController.js';
 import './config/database.js';
-// import routes from './controllers/routes';
 
 const app = express();
 
@@ -18,8 +17,6 @@ const __dirname = dirname(__filename)
 app.use(cors())
 // Request parser middleware
 app.use(express.json())
-
-// app.use('./controllers/routes', routes)
 
 // Mailer routes
 app.post('/call', MC.sendNewCall)
@@ -42,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Favicon middleware
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => console.info(`Server has started on ${PORT} port`))
