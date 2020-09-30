@@ -42,4 +42,4 @@ if (process.env.NODE_ENV === 'production') {
 app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 
 const PORT = process.env.PORT || 8080
-app.listen(PORT, () => console.info(`Server has started on ${PORT} port`))
+app.listen(PORT, () => console.info(`Server has started on port ${PORT} ...`))
