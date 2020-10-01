@@ -3,9 +3,14 @@ import 'dotenv/config.js';
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    // auth: {
+    //     user: 'iam618384@gmail.com',
+    //     pass: 'iam261282'
+    // }
     auth: {
-        user: 'iam618384@gmail.com',
-        pass: 'iam261282'
+        type: 'OAuth2',
+        user: 'chaqi.puerh@gmail.com',
+        accessToken: 'vebfbrjxzfyuxzam'
     }
 })
 
