@@ -35,7 +35,11 @@ const FormCall = (props) => {
         })
 
         status === 'success' ? setSuccessMsg(true) : setSuccessMsg(false)
-    }, [status, resetStatus])
+
+        return () => {
+
+        }
+    }, [resetStatus, setLoader, status])
 
     const toggleCallOrderBtn = (e) => {
         e.stopPropagation()
@@ -43,7 +47,7 @@ const FormCall = (props) => {
         setSuccessMsg(false)
     }
 
-    const handleSubmit = (values, {resetForm}) => {
+    const handleSubmit = (values, { resetForm }) => {
         let options = {
             method: 'POST',
             body: values
@@ -53,7 +57,7 @@ const FormCall = (props) => {
         sendOrder('/send/call', options)
         resetForm({ values: '' })
     }
-    console.log(successMsg);
+
     return (
         <>
             <span className={successMsg

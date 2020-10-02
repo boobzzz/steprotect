@@ -1,0 +1,15 @@
+.NoMatch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../assets/images/404.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+    .NoMatch h1 {
+        font-weight: 700;
+        font-size: 50px;
+        color: var(--red);
+    }

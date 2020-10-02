@@ -49,7 +49,7 @@ const AdminForm = (props) => {
         const controller = new AbortController()
         const signal = controller.signal
 
-        readPost(`/blog/posts/${id}`, {signal})
+        readPost(`/blog/posts/${id}`, { signal })
         window.addEventListener('click', () => {
             resetStatus()
         })

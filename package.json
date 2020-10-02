@@ -9,15 +9,16 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "googleapis": "^60.0.1",
     "mongoose": "^5.10.2",
     "nodemailer": "^6.4.11",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "node index.js",
     "server": "nodemon --exec babel-node index.js",
     "client": "yarn --cwd client start",
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\"",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
     "postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "devDependencies": {
