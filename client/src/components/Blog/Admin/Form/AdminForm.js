@@ -69,7 +69,9 @@ const AdminForm = (props) => {
         }
 
         setLoader(true)
-        !id ? createPost('/posts', options) : updatePost(`/posts/${id}`, options)
+        !id
+        ? createPost('/blog/posts', options)
+        : updatePost(`/blog/posts/${id}`, options)
         if (!id) resetForm()
     }
 
