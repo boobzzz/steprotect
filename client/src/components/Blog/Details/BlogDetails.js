@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as S from '../redux/selectors';
 import * as A from '../redux/actions';
-import * as C from '../../../utils/api/constants';
 
 import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
 import SectionHeader from '../../UI/SectionHeader/SectionHeader';
@@ -16,7 +15,7 @@ const BlogDetails = (props) => {
 
     useEffect(() => {
         setLoader(true)
-        readPost(`${C.API_ENDPOINT}/posts/${id}`)
+        readPost(`/blog/posts/${id}`)
     }, [id, readPost, setLoader])
 
     return (

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as S from '../redux/selectors';
 import * as A from '../redux/actions';
-import * as C from '../../../utils/api/constants';
 
 import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
 import BlogItem from '../Item/BlogItem';
@@ -14,7 +13,7 @@ const BlogList = (props) => {
 
     useEffect(() => {
         setLoader(true)
-        getPosts(`${C.API_ENDPOINT}/posts`)
+        getPosts('/blog/posts')
     }, [getPosts, setLoader])
 
     return (

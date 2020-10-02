@@ -57,7 +57,7 @@ const FormOrder = (props) => {
         }
 
         setLoader(true)
-        sendOrder('/order', options)
+        sendOrder('/send/order', options)
         resetForm({ values: '' })
     }
 

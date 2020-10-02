@@ -40,7 +40,7 @@
     transform: rotateY(180deg);
 }
 .front, .back {
-    border: 2px solid var(--red);
+    border: 4px solid var(--red);
     backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;

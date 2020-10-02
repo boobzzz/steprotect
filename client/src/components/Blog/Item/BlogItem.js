@@ -16,7 +16,7 @@ const BlogItem = (props) => {
             method: 'DELETE'
         }
 
-        deletePost(`/posts/${post._id}`, options)
+        deletePost(`/blog/posts/${post._id}`, options)
     }
 
     return (

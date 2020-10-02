@@ -3,9 +3,10 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
 import favicon from 'serve-favicon';
+import config from 'config';
 
-import * as MC from './controllers/MailController.js';
-import * as PC from './controllers/PostController.js';
+import mailerRoutes from './routes/mailerRoutes.js';
+import blogRoutes from './routes/blogRoutes.js';
 import './config/database.js';
 
 const app = express();
@@ -18,19 +19,11 @@ app.use(cors())
 // Request parser middleware
 app.use(express.json())
 
-// Mailer routes
-app.post('/call', MC.sendNewCall)
-app.post('/order', MC.sendNewOrder)
-
-// Blog routes
-app.get('/posts', PC.indexPost)
-app.post('/posts', PC.createPost)
-app.get('/posts/:id', PC.readPost)
-app.put('/posts/:id', PC.updatePost)
-app.delete('/posts/:id', PC.deletePost)
+// routes middleware
+app.use('/send', mailerRoutes)
+app.use('/blog', blogRoutes)
 
 if (process.env.NODE_ENV === 'production') {
-    // Set static folder
     app.use(express.static(path.join(__dirname, 'client', 'build')))
 
     app.get('*', (req, res) => {
@@ -41,5 +34,5 @@ if (process.env.NODE_ENV === 'production') {
 // Favicon middleware
 app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => console.info(`Server has started on port ${PORT} ...`))
+const PORT = config.get('port') || 8080
+app.listen(PORT, () => console.log(`Server has started on port ${PORT} ...`))

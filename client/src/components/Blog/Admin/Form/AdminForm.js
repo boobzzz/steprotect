@@ -6,7 +6,6 @@ import { css } from "@emotion/core";
 import { connect } from 'react-redux';
 import * as S from '../../redux/selectors';
 import * as A from '../../redux/actions';
-import * as C from '../../../../utils/api/constants';
 
 import ButtonSpinner from '../../../UI/Spinners/Button/ButtonSpinner';
 import FieldText from '../../../UI/Field/Text/FieldText';
@@ -50,7 +49,7 @@ const AdminForm = (props) => {
         const controller = new AbortController()
         const signal = controller.signal
 
-        readPost(`${C.API_ENDPOINT}/posts/${id}`, {signal})
+        readPost(`/blog/posts/${id}`, {signal})
         window.addEventListener('click', () => {
             resetStatus()
         })

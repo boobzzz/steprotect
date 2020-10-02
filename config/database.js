@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import 'dotenv/config.js';
+import config from 'config';
 
 const options = {
     useUnifiedTopology: true,
@@ -8,7 +8,8 @@ const options = {
 }
 
 // mongoose.connect('mongodb://localhost:27017/blog', options)
-mongoose.connect('mongodb+srv://boooble:aid261282@clustersteprotect.nobjr.mongodb.net/blog?retryWrites=true&w=majority', options)
+mongoose.connect(config.get('mongoUri'), options)
+
 
 mongoose.connection.on('connected', () => {
     console.log('Mongo database connected...')
