@@ -37,6 +37,6 @@ app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 
 // const PORT = config.get('port') || 8080
 const PORT = process.env.NODE_ENV === 'production'
-    ? process.env.PROD_PORT
-    : process.env.DEV_PORT
+             ? process.env.PROD_PORT
+             : process.env.DEV_PORT
 app.listen(PORT, () => console.log(`Server has started on port ${PORT}...`))
