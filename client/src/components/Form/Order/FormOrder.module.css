@@ -18,6 +18,9 @@
         border: 1px solid var(--input);
         outline: none;
     }
+    .Form input {
+        padding: 0 5px;
+    }
     .Form input + div,
     .Form select + div {
         font-size: 12px;
