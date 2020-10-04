@@ -81,3 +81,8 @@
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 575px) {
+    .List {
+        padding: 40px 10px 100px;
+    }
+}

@@ -85,6 +85,7 @@
 }
 @media (max-width: 575px) {
     .Content h1 {
+        margin-top: 0;
         font-size: 40px;
     }
     .Content p {
@@ -93,7 +94,6 @@
 }
 @media (max-width: 460px) {
     .Content h1 {
-        margin-top: 50px;
         font-size: 26px;
     }
     .Content p {

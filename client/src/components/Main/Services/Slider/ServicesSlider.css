@@ -59,11 +59,6 @@
     }
 
 /* --------------------------------Media Queries----------------------------- */
-@media (max-width: 1199px) {
-    .back {
-        padding: 16px;
-    }
-}
 @media (min-width: 1024px) and (max-width: 1099px),
        (min-width: 700px) and (max-width: 750px) {
     .Slider h4 {
@@ -81,8 +76,13 @@
     .Slider p {
         margin-top: 50px;
     }
-    .back {
-        padding: 30px;
+}
+@media (max-width: 575px) {
+    .Slider .slick-list {
+        margin: 0 -10px;
+    }
+    .Slider .slick-slide > div {
+        padding: 0 10px;
     }
 }
 @media (max-width: 380px) {
@@ -91,8 +91,5 @@
     }
     .Slider p {
         margin-top: 10px;
-    }
-    .back {
-        padding: 10px;
     }
 }

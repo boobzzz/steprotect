@@ -13,3 +13,13 @@
         font-size: 50px;
         color: var(--red);
     }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 991px) {
+    .NoMatch {
+        padding: 0 10px;
+    }
+    .NoMatch h1 {
+        font-size: 40px;
+    }
+}

@@ -3,7 +3,6 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
 import favicon from 'serve-favicon';
-// import config from 'config';
 import 'dotenv/config.js';
 
 import mailerRoutes from './routes/mailerRoutes.js';
@@ -35,7 +34,6 @@ if (process.env.NODE_ENV === 'production') {
 // Favicon middleware
 app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 
-// const PORT = config.get('port') || 8080
 const PORT = process.env.NODE_ENV === 'production'
              ? process.env.PROD_PORT
              : process.env.DEV_PORT

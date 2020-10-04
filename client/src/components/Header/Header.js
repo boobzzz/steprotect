@@ -24,7 +24,10 @@ const Header = (props) => {
 
     const toggleMenu = () => setOpen(!open)
 
-    const toggleModal = () => setModal(!modal)
+    const toggleModal = () => {
+        setModal(!modal)
+        setOpen(false)
+    }
 
     return (
         <>
@@ -47,8 +50,8 @@ const Header = (props) => {
                             color="#FF0000"
                             animationDuration={0.3}
                             className={classes.Hamburger} />
-                        <NavBar clicked={toggleModal} />
-                        <NavBar clicked={toggleModal} />
+                        <NavBar toggle={toggleModal} />
+                        <NavBar toggle={toggleModal} close={toggleMenu} />
                     </div>
                 </div>
             </header>

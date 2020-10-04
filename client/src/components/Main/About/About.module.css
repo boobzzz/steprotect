@@ -44,3 +44,8 @@
         margin: 10px 0;
     }
 }
+@media (max-width: 575px) {
+    .About {
+        padding: 40px 10px;
+    }
+}
