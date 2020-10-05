@@ -18,3 +18,10 @@ section > div {
     background-color: #000;
     opacity: 0.7;
 }
+
+/* --------------------------------Media Queries----------------------------- */
+@media (max-width: 991px) {
+    .Services {
+        padding: 40px 16px 10px 16px;
+    }
+}
