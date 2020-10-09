@@ -1,0 +1,69 @@
+.Logo p {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--footer);
+}
+.Logo > div {
+    margin-top: 30px;
+}
+.Logo > div > a {
+    display: inline-block;
+    width: 100%;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--footer);
+    transition: all 0.3s ease;
+}
+.Logo > div > a:hover {
+    color: var(--red);
+}
+    .Logo > div > a span {
+        margin-left: 10px;
+        font-weight: 500;
+    }
+    .Logo a i {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+    }
+.Logo ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 30px;
+}
+    .Logo ul li {
+        margin: 0 10px;
+    }
+    .Logo ul a {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--footer);
+        transition: all 0.4s ease;
+    }
+    .Logo ul a:hover {
+        background: var(--red);
+        color: var(--white);
+    }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 767px) {
+    .Logo p {
+        font-size: 20px;
+    }
+    .Logo > a {
+        display: flex;
+        justify-content: center;
+    }
+    .Logo img {
+        height: 100px;
+    }
+}

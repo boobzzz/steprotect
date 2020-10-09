@@ -137,6 +137,11 @@ header.Fixed {
         padding: 15px;
     }
 }
+@media (max-width: 1099px) {
+    .Hamburger + nav ul a {
+        padding: 15px 10px;
+    }
+}
 @media (max-width: 991px) {
     header {
         padding: 16px;

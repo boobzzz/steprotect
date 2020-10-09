@@ -1,0 +1,31 @@
+.Services h2 {
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--footer);
+}
+.Services a {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--footer);
+    transition: all 0.3s ease;
+}
+.Services a:hover {
+    color: var(--red);
+    transform: translateX(20px);
+}
+    .Services a i {
+        padding-left: 10px;
+        font-style: normal;
+    }
+
+/* ------------------------------Media Queries------------------------------- */
+@media (max-width: 767px) {
+    .Services {
+        display: none;
+    }
+}

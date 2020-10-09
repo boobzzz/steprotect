@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import * as A from '../redux/actions';
 import Slider from "react-slick";
 import { GiCctvCamera, GiSpy } from 'react-icons/gi';
 import { RiAlarmWarningLine } from 'react-icons/ri';
@@ -24,7 +26,7 @@ const slides = [
         icon: <GiSpy />,
         title: 'Виявлення систем стеження',
         desc: `Виявлення прихованих засобів зняття інформації. Пошук "жучків",
-               радіо моніторинг, аналіз дротових комунікацій, оптичне зондування, 
+               радіо моніторинг, аналіз дротових комунікацій, оптичне зондування,
                локація нелінійності, фізичний пошук.`
     },
     {
@@ -64,22 +66,21 @@ const slides = [
 
 const settings = {
     arrows: false,
-    dots: false,
     autoplay: true,
+    className: 'Slider',
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    className: 'Slider',
     responsive: [
         {
-            breakpoint: 1024,
+            breakpoint: 1200,
             settings: {
                 slidesToShow: 2
             }
         },
         {
-            breakpoint: 699,
+            breakpoint: 800,
             settings: {
                 slidesToShow: 1
             }
@@ -88,9 +89,16 @@ const settings = {
 }
 
 const ServicesSlider = (props) => {
+    const { passRef } = props
+    const sliderRef = useRef(null)
+
+    useEffect(() => {
+        passRef(sliderRef.current)
+    }, [passRef])
+
     return (
-        <Slider {...settings}>
-            {slides.map(slide =>
+        <Slider ref={sliderRef} {...settings}>
+            {/* {slides.map(slide =>
                 <div key={slide.id} className="outer">
                     <div className="inner">
                         <div className="front">
@@ -102,9 +110,26 @@ const ServicesSlider = (props) => {
                         </div>
                     </div>
                 </div>
+            )} */}
+            {slides.map(slide =>
+                <div key={slide.id} className="sl-container">
+                    <div>
+                        <div className="sl-bg">
+                            <div>{slide.icon}</div>
+                        </div>
+                        <h4>{slide.title}</h4>
+                        <p>{slide.desc}</p>
+                    </div>
+                </div>
             )}
         </Slider>
     )
 }
 
-export default ServicesSlider;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        passRef: (ref) => dispatch(A.passRef(ref))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ServicesSlider);
