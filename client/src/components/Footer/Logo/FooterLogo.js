@@ -15,7 +15,7 @@ const socials = [
     {
         id: 2,
         icon: <Fa.FaInstagram />,
-        link: ""
+        link: "https://www.instagram.com/steprotect/?hl=uk"
     }
 ]
 
@@ -42,7 +42,12 @@ const FooterLogo = (props) => {
             <ul>
                 {socials.map(social =>
                     <li key={social.id}>
-                        <a href={social.link}><i>{social.icon}</i></a>
+                        <a
+                            href={social.link}
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <i>{social.icon}</i>
+                        </a>
                     </li>
                 )}
             </ul>

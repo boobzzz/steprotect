@@ -16,7 +16,13 @@ const services = [
 ]
 
 const FooterServices = (props) => {
-    const { slickGoTo } = props.slider
+    const { slider } = props
+
+    const moveToSlide = (i) => {
+        return props.slider !== null
+               ? slider.slickGoTo(i)
+               : null
+    }
 
     return (
         <div className={classes.Services}>
@@ -24,8 +30,11 @@ const FooterServices = (props) => {
             <ul>
                 {services.map((service, i) =>
                     <li key={service}>
-                        <Link smooth to="/#services" onClick={() => slickGoTo(i)}>
-                            <Fa.FaAngleRight /><i>{service}</i>
+                        <Link
+                            smooth
+                            to="/#services"
+                            onClick={() => moveToSlide(i)}>
+                            <Fa.FaAngleRight /><span>{service}</span>
                         </Link>
                     </li>
                 )}

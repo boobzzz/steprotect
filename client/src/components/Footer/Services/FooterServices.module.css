@@ -18,10 +18,10 @@
     color: var(--red);
     transform: translateX(20px);
 }
-    .Services a i {
-        padding-left: 10px;
-        font-style: normal;
-    }
+.Services a span {
+    padding-left: 10px;
+    font-style: normal;
+}
 
 /* ------------------------------Media Queries------------------------------- */
 @media (max-width: 767px) {

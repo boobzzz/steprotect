@@ -50,9 +50,6 @@
 .Post {
     padding: 70px 16px;
 }
-    .Post h2 {
-        font-weight: 600;
-    }
     .Post p {
         margin-top: 70px;
         text-align: justify;

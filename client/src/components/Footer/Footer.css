@@ -20,7 +20,7 @@ footer > div {
 @media (max-width: 991px) {
     footer > div {
         grid-template-columns: 1fr 1fr;
-        grid-gap: 10vw;
+        grid-gap: 6vw;
     }
 }
 @media (max-width: 767px) {

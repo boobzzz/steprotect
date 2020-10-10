@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import * as A from '../redux/actions';
 import Slider from "react-slick";
@@ -67,6 +67,7 @@ const slides = [
 const settings = {
     arrows: false,
     autoplay: true,
+    autoplaySpeed: 4000,
     className: 'Slider',
     infinite: true,
     speed: 500,
@@ -80,7 +81,7 @@ const settings = {
             }
         },
         {
-            breakpoint: 800,
+            breakpoint: 768,
             settings: {
                 slidesToShow: 1
             }
@@ -90,35 +91,21 @@ const settings = {
 
 const ServicesSlider = (props) => {
     const { passRef } = props
-    const sliderRef = useRef(null)
 
-    useEffect(() => {
-        passRef(sliderRef.current)
-    }, [passRef])
+    const sliderRef = useCallback((el) => passRef(el), [passRef])
 
     return (
         <Slider ref={sliderRef} {...settings}>
-            {/* {slides.map(slide =>
-                <div key={slide.id} className="outer">
-                    <div className="inner">
-                        <div className="front">
-                            <i>{slide.icon}</i>
-                        </div>
-                        <div className="back">
-                            <h4>{slide.title}</h4>
-                            <p>{slide.desc}</p>
-                        </div>
-                    </div>
-                </div>
-            )} */}
             {slides.map(slide =>
                 <div key={slide.id} className="sl-container">
                     <div>
                         <div className="sl-bg">
                             <div>{slide.icon}</div>
                         </div>
-                        <h4>{slide.title}</h4>
-                        <p>{slide.desc}</p>
+                        <div className="sl-text">
+                            <h4>{slide.title}</h4>
+                            <p>{slide.desc}</p>
+                        </div>
                     </div>
                 </div>
             )}
