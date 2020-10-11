@@ -66,7 +66,7 @@ const slides = [
 
 const settings = {
     arrows: false,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 4000,
     className: 'Slider',
     infinite: true,
