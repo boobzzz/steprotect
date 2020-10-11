@@ -122,8 +122,8 @@ const AdminForm = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        currentPost: S.currentPost(state),
-        status: S.status(state),
+        currentPost: S.getCurrentPost(state),
+        status: S.getStatus(state),
         isLoading: S.isLoading(state)
     }
 }

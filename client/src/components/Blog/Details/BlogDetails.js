@@ -54,7 +54,7 @@ const BlogDetails = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        currentPost: S.currentPost(state),
+        currentPost: S.getCurrentPost(state),
         isLoading: S.isLoading(state)
     }
 }

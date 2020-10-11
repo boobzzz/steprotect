@@ -1,4 +1,4 @@
 export const isLoading = (state) => state.blog.isLoading
-export const status = (state) => state.blog.status
-export const posts = (state) => state.blog.posts
-export const currentPost = (state) => state.blog.currentPost
+export const getStatus = (state) => state.blog.status
+export const getPosts = (state) => state.blog.posts
+export const getCurrentPost = (state) => state.blog.currentPost

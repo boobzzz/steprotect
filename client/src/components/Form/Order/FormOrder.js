@@ -104,7 +104,7 @@ const FormOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        status: S.status(state),
+        status: S.getStatus(state),
         isLoading: S.isLoading(state)
     }
 }

@@ -48,7 +48,7 @@ const AdminList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        posts: S.posts(state),
+        posts: S.getPosts(state),
         isLoading: S.isLoading(state)
     }
 }

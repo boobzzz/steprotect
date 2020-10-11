@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import HamburgerMenu from 'react-hamburger-menu';
 
 import NavBar from './NavBar/NavBar';
@@ -34,9 +34,9 @@ const Header = (props) => {
             <header className={scrolled ? classes.Fixed : null}>
                 <div className="wrapper">
                     <div className={classes.Logo}>
-                        <NavLink to="/">
+                        <Link smooth to="/#top">
                             <img src={!scrolled ? logoVr : logoHr} alt=""/>
-                        </NavLink>
+                        </Link>
                     </div>
                     <div className={open
                                     ? `${classes.Menu} ${classes.Show}`
