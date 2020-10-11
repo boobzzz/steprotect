@@ -19,7 +19,7 @@
         border-radius: 50%;
         color: var(--red);
     }
-    .Item h3 {
+    .Item h4 {
         margin: 20px 0;
         font-weight: 600;
     }
@@ -37,7 +37,7 @@
 }
 @media (max-width: 767px) {
     .About {
-        padding: 40px 16px;
+        padding: 40px 10px;
     }
     .Item {
         grid-template-columns: 1fr;
@@ -46,10 +46,5 @@
     }
     .Item h3 {
         margin: 10px 0;
-    }
-}
-@media (max-width: 575px) {
-    .About {
-        padding: 40px 10px;
     }
 }

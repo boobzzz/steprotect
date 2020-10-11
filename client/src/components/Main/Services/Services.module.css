@@ -25,3 +25,8 @@ section > div {
         padding: 40px 16px 10px 16px;
     }
 }
+@media (max-width: 767px) {
+    .Services {
+        padding: 40px 10px 10px 10px;
+    }
+}

@@ -50,7 +50,7 @@ const About = (props) => {
                     {abouts.map(about =>
                         <div key={about.id}>
                             <div>{about.icon}</div>
-                            <h3>{about.title}</h3>
+                            <h4>{about.title}</h4>
                             <p>{about.desc}</p>
                         </div>
                     )}

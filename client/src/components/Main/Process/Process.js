@@ -43,7 +43,7 @@ const Process = (props) => {
                     {stages.map(stage =>
                         <div key={stage.phase}>
                             <div>{stage.phase}</div>
-                            <h3>{stage.title}</h3>
+                            <h4>{stage.title}</h4>
                             <p>{stage.desc}</p>
                         </div>
                     )}
