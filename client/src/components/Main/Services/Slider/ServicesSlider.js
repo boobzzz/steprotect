@@ -66,7 +66,7 @@ const slides = [
 
 const settings = {
     arrows: false,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 4000,
     className: 'Slider',
     infinite: true,
@@ -98,14 +98,12 @@ const ServicesSlider = (props) => {
         <Slider ref={sliderRef} {...settings}>
             {slides.map(slide =>
                 <div key={slide.id} className="sl-container">
-                    <div>
-                        <div className="sl-bg">
-                            <div>{slide.icon}</div>
-                        </div>
-                        <div className="sl-text">
-                            <h4>{slide.title}</h4>
-                            <p>{slide.desc}</p>
-                        </div>
+                    <div className="sl-bg">
+                        {slide.icon}
+                    </div>
+                    <div className="sl-text">
+                        <h4>{slide.title}</h4>
+                        <p>{slide.desc}</p>
                     </div>
                 </div>
             )}
