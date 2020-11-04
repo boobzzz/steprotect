@@ -5,8 +5,7 @@ import cors from 'cors';
 import favicon from 'serve-favicon';
 import 'dotenv/config.js';
 
-import mailerRoutes from './routes/mailerRoutes.js';
-import blogRoutes from './routes/blogRoutes.js';
+import indexRoute from './routes/index.js';
 import './config/database.js';
 
 const app = express();
@@ -14,14 +13,14 @@ const app = express();
 // ES6 __dirname
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
 // CORS middleware
 app.use(cors())
 // Request parser middleware
 app.use(express.json())
 
-// routes middleware
-app.use('/send', mailerRoutes)
-app.use('/blog', blogRoutes)
+// routes
+app.use('/', indexRoute)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')))

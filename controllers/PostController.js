@@ -1,7 +1,7 @@
-import PostModel from '../models/Post.js';
+import Post from '../models/Post.js';
 
 export const indexPost = (req, res) => {
-    PostModel.find().then((err, posts) => {
+    Post.find().then((err, posts) => {
         if (err) return res.send(err)
 
         res.json(posts)
@@ -11,7 +11,7 @@ export const indexPost = (req, res) => {
 export const createPost = (req, res) => {
     const data = req.body
 
-    const post = new PostModel({
+    const post = new Post({
         img: data.img,
         title: data.title,
         text: data.text
@@ -25,7 +25,7 @@ export const createPost = (req, res) => {
 }
 
 export const readPost = (req, res) => {
-    PostModel.findOne({
+    Post.findOne({
         _id: req.params.id
     }).then(post => {
         !post
@@ -35,7 +35,7 @@ export const readPost = (req, res) => {
 }
 
 export const updatePost = (req, res) => {
-    PostModel.findByIdAndUpdate(req.params.id, {$set: req.body}, err => {
+    Post.findByIdAndUpdate(req.params.id, {$set: req.body}, err => {
         if (err) return res.send(err)
 
         res.json({ status: 'success' })
@@ -43,7 +43,7 @@ export const updatePost = (req, res) => {
 }
 
 export const deletePost = (req, res) => {
-    PostModel.deleteOne({
+    Post.deleteOne({
         _id: req.params.id
     }).then(post => {
         post
