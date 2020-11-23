@@ -18,9 +18,9 @@ const initialValues = {
     text: ''
 }
 const validationSchema = Yup.object({
-    img: Yup.string().required('Введіть URL зображення *'),
-    title: Yup.string().required('Введіть назву *'),
-    text: Yup.string().required('Введіть текст *')
+    img: Yup.string().required('Введіть URL зображення статті'),
+    title: Yup.string().required('Введіть назву статті'),
+    text: Yup.string().required('Введіть текст статті')
 })
 const style = css`
     width: 100px;
@@ -69,9 +69,11 @@ const AdminForm = (props) => {
         }
 
         setLoader(true)
+        
         !id
         ? createPost('/blog/posts', options)
         : updatePost(`/blog/posts/${id}`, options)
+        
         if (!id) resetForm()
     }
 

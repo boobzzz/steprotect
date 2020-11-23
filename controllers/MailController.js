@@ -18,7 +18,7 @@ export const sendNewCall = (req, res) => {
     `
     let mail = {
         from: 'SteProtect web app',
-        to: 'test618384@gmail.com',
+        to: 'steprotect.ua@gmail.com',
         subject: 'Новий дзвінок!!!',
         html: content
     }
@@ -39,7 +39,7 @@ export const sendNewOrder = (req, res) => {
     `
     let mail = {
         from: 'SteProtect web app',
-        to: 'test618384@gmail.com',
+        to: 'steprotect.ua@gmail.com',
         subject: 'Нове замовлення!!!',
         html: content
     }
