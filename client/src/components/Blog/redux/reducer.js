@@ -3,18 +3,12 @@ const initialState = {
     success: {},
     error: {},
     posts: [],
-    currentPost: {},
-    status: '',
+    currentPost: {}
 }
 
 const blogReducer = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
-        case 'RESET_BLOG_STATUS':
-            return {
-                ...state,
-                status: ''
-            }
         case 'SET_BLOG_LOADER':
             return {
                 ...state,
@@ -41,12 +35,6 @@ const blogReducer = (state = initialState, action) => {
                 currentPost: payload
             }
         case 'ADD_NEW_POST':
-            return {
-                ...state,
-                isLoading: false,
-                success: payload,
-                error: {}
-            }
         case 'EDIT_POST':
             return {
                 ...state,

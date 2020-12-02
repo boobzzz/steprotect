@@ -1,10 +1,10 @@
 import { transporter } from '../config/transporter.js';
 
-const mailer = (mail, response) => {
-    transporter.sendMail(mail, (err, data) => {
+const sendMail = (mail, res, context) => {
+    transporter.sendMail(mail, (err) => {
         err
-        ? response.json({status: 'fail'})
-        : response.json({status: 'success'})
+        ? res.json({ message: `${context} не вдалося надіслати, спробуте ще раз`})
+        : res.json({ message: `${context} успішно надіслано` })
     })
 }
 
@@ -23,7 +23,7 @@ export const sendNewCall = (req, res) => {
         html: content
     }
 
-    mailer(mail, res)
+    sendMail(mail, res, 'Дзвінок')
 }
 
 export const sendNewOrder = (req, res) => {
@@ -44,5 +44,5 @@ export const sendNewOrder = (req, res) => {
         html: content
     }
 
-    mailer(mail, res)
+    sendMail(mail, res, 'Замовлення')
 }

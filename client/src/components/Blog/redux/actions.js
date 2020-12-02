@@ -1,7 +1,5 @@
 import * as RA from '../../../store/rootActions';
 
-export const resetStatus = () => ({ type: 'RESET_BLOG_STATUS' })
-
 export const setLoader = (loading) => ({
     type: 'SET_BLOG_LOADER',
     payload: loading

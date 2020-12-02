@@ -1,16 +1,16 @@
 const initialState = {
-    status: '',
-    isLoading: false
+    isLoading: false,
+    message: ''
 }
 
 const orderReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case 'RESET_FORM_STATUS':
+        case 'RESET_FORM_MESSAGE':
             return {
                 ...state,
-                status: ''
+                message: ''
             }
         case 'SET_FORM_LOADER':
             return {
@@ -20,12 +20,11 @@ const orderReducer = (state = initialState, action) => {
         case 'SEND_FORM':
             return {
                 ...state,
-                status: payload.status,
-                isLoading: false
+                isLoading: false,
+                message: payload.message
             }
         default:
             return state
-
     }
 }
 

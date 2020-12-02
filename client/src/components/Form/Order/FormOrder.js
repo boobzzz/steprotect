@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
@@ -29,12 +29,12 @@ const initialValues = {
     email: ''
 }
 const validationSchema = Yup.object({
-    name: Yup.string().required('Введіть Ваше ім\'я *'),
-    services: Yup.string().required('Виберіть послугу *'),
-    phone: Yup.string().min(13, 'Номер телефону надто короткий *'),
+    name: Yup.string().required('Введіть Ваше ім\'я'),
+    services: Yup.string().required('Виберіть послугу'),
+    phone: Yup.string().min(13, 'Номер телефону надто короткий'),
     email: Yup.string()
-        .required('Введіть Вашу електронну скриньку *')
-        .email('Невірний формат електронної скриньки *'),
+        .required('Введіть Вашу електронну скриньку')
+        .email('Невірний формат електронної скриньки'),
 })
 const style = css`
     width: 100px;
@@ -42,14 +42,10 @@ const style = css`
 `
 
 const FormOrder = (props) => {
-    const { modalShown, status, isLoading, sendOrder, setLoader, resetStatus } = props
-    const [ successMsg, setSuccessMsg ] = useState(false)
+    const { isLoading, message, setLoader, sendOrder, resetMessage } = props
+    const [ showMessage, setShowMessage ] = useState(false)
 
-    useEffect(() => {
-        if (!modalShown) resetStatus()
-
-        status === 'success' ? setSuccessMsg(true) : setSuccessMsg(false)
-    }, [modalShown, status, resetStatus])
+    const msgShowToggle = showMessage ? classes.Show : classes.Hide
 
     const handleSubmit = (values, {resetForm}) => {
         let options = {
@@ -60,6 +56,12 @@ const FormOrder = (props) => {
         setLoader(true)
         sendOrder('/send/order', options)
         resetForm({ values: '' })
+
+        if (!isLoading) setShowMessage(true)
+        setTimeout(() => {
+            setShowMessage(false)
+            resetMessage()
+        }, 5000)
     }
 
     return (
@@ -76,10 +78,8 @@ const FormOrder = (props) => {
                                 <FieldSelect id="services" label="послуга *" options={options} />
                                 <FieldPhone id="phone" label="номер телефону *" />
                                 <FieldText id="email" type="email" label="електронна скринька *" />
-                                <span className={successMsg
-                                                 ? `${classes.Msg} ${classes.Success}`
-                                                 : `${classes.Msg} ${classes.Failed}`}>
-                                    Замовлення успішно сформовано
+                                <span className={`${classes.Msg} ${msgShowToggle}`}>
+                                    {message}
                                 </span>
                                 <div className={classes.SubmitBtn}>
                                     {isLoading
@@ -104,16 +104,16 @@ const FormOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        status: S.getStatus(state),
-        isLoading: S.isLoading(state)
+        isLoading: S.isLoading(state),
+        message: S.getMessage(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
         setLoader: (loading) => dispatch(A.setLoader(loading)),
-        resetStatus: () => dispatch(A.resetStatus())
+        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
+        resetMessage: () => dispatch(A.resetMessage())
     }
 }
 

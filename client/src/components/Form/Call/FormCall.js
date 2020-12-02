@@ -23,28 +23,23 @@ const style = css`
     height: 5px;
 `
 const FormCall = (props) => {
-    const { slide, status, isLoading, sendOrder, setLoader, resetStatus } = props
-    const [ callForm, setCallForm ] = useState(false)
-    const [ successMsg, setSuccessMsg ] = useState(false)
+    const { slide, isLoading, message, setLoader, sendOrder, resetMessage } = props
+    const [ showCallForm, setShowCallForm ] = useState(false)
+    const [ showMessage, setShowMessage ] = useState(false)
+
+    const msgShowToggle = showMessage ? classes.Show : classes.Hide
+    const callFormToggle = showCallForm ? classes.Clicked : ''
 
     useEffect(() => {
         window.addEventListener('click', () => {
-            setCallForm(false)
-            setSuccessMsg(false)
-            resetStatus()
+            setShowCallForm(false)
         })
-
-        status === 'success' ? setSuccessMsg(true) : setSuccessMsg(false)
-
-        return () => {
-
-        }
-    }, [resetStatus, setLoader, status])
+    }, [])
 
     const toggleCallOrderBtn = (e) => {
         e.stopPropagation()
-        setCallForm(true)
-        setSuccessMsg(false)
+        setShowCallForm(true)
+        setShowMessage(false)
     }
 
     const handleSubmit = (values, { resetForm }) => {
@@ -56,20 +51,22 @@ const FormCall = (props) => {
         setLoader(true)
         sendOrder('/send/call', options)
         resetForm({ values: '' })
+
+        if (!isLoading) setShowMessage(true)
+        setTimeout(() => {
+            setShowMessage(false)
+            resetMessage()
+        }, 5000)
     }
 
     return (
         <>
-            <span className={successMsg
-                             ? `${classes.Msg} ${classes.Success}`
-                             : `${classes.Msg} ${classes.Failed}`}>
-                Дзвінок замовлено успішно
+            <span className={`${classes.Msg} ${msgShowToggle}`}>
+                {message}
             </span>
             <div
-                onClick={toggleCallOrderBtn}
-                className={callForm
-                           ? `${classes.Button} ${classes.Clicked}`
-                           : `${classes.Button}`}>
+                className={`${classes.Button} ${callFormToggle}`}
+                onClick={toggleCallOrderBtn}>
                 <i>{slide.btn}</i>
                 {isLoading
                  ? <ButtonSpinner
@@ -99,16 +96,16 @@ const FormCall = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        status: S.getStatus(state),
-        isLoading: S.isLoading(state)
+        isLoading: S.isLoading(state),
+        message: S.getMessage(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
         setLoader: (loading) => dispatch(A.setLoader(loading)),
-        resetStatus: () => dispatch(A.resetStatus())
+        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
+        resetMessage: () => dispatch(A.resetMessage())
     }
 }
 
