@@ -1,4 +1,4 @@
-import * as MC from '../controllers/MailController.js';
+import * as MC from '../controllers/MailerController.js';
 import Router_pkg from 'express';
 const { Router } = Router_pkg
 

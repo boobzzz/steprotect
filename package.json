@@ -9,17 +9,18 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^60.0.1",
+    "http-errors": "^1.8.0",
     "mongoose": "^5.10.2",
     "nodemailer": "^6.4.11",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\"",
-    "clientstart": "yarn --cwd client start",
+    "client": "yarn --cwd client start",
     "start": "cross-env NODE_ENV=production node index.js",
     "server": "nodemon --exec babel-node index.js",
     "postbuild": "npm install --prefix client && npm run build --prefix client",
-    "client": "npm install --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\"",
+    "clientnpminstall": "npm install --prefix client",
     "build": "npm run build --prefix client"
   },
   "devDependencies": {

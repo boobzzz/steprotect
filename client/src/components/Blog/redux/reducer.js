@@ -1,53 +1,65 @@
 const initialState = {
+    isLoading: true,
+    success: {},
+    error: {},
     posts: [],
     currentPost: {},
-    isLoading: false,
     status: '',
 }
 
 const blogReducer = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
-        case 'SET_BLOG_LOADER':
-            return {
-                ...state,
-                isLoading: payload
-            }
         case 'RESET_BLOG_STATUS':
             return {
                 ...state,
                 status: ''
             }
-        case 'GET_POSTS':
+        case 'SET_BLOG_LOADER':
             return {
                 ...state,
-                posts: payload,
-                isLoading: false
+                isLoading: payload
             }
-        case 'GET_POST':
+        case 'ERROR':
             return {
                 ...state,
-                currentPost: payload,
-                isLoading: false
-            }
-        case 'ADD_POST':
-            return {
-                ...state,
-                posts: [...state.posts, payload],
                 isLoading: false,
-                status: payload.status
+                error: payload
+            }
+        case 'GET_ALL_POSTS':
+            return {
+                ...state,
+                isLoading: false,
+                error: {},
+                posts: payload
+            }
+        case 'GET_SINGLE_POST':
+            return {
+                ...state,
+                isLoading: false,
+                error: {},
+                currentPost: payload
+            }
+        case 'ADD_NEW_POST':
+            return {
+                ...state,
+                isLoading: false,
+                success: payload,
+                error: {}
             }
         case 'EDIT_POST':
             return {
                 ...state,
                 isLoading: false,
-                status: payload.status
+                success: payload,
+                error: {}
             }
         case 'REMOVE_POST':
             return {
                 ...state,
-                posts: state.posts.filter(post => post._id !== payload),
-                isLoading: false
+                isLoading: false,
+                error: {},
+                posts: state.posts.filter(post => post._id !== payload)
             }
         default:
             return state

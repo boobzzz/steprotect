@@ -1,10 +1,10 @@
 import express from 'express';
-import mailerRoutes from './mailerRoutes.js';
-import blogRoutes from './blogRoutes.js';
+import MailerRoutes from './MailerRoutes.js';
+import BlogRoutes from './BlogRoutes.js';
 
 const app = express()
 
-app.use('/send', mailerRoutes)
-app.use('/blog', blogRoutes)
+app.use('/send', MailerRoutes)
+app.use('/blog', BlogRoutes)
 
 export default app;

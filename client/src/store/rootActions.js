@@ -1,11 +1,15 @@
-import * as F from '../utils/api/fetch.js';
+import { fetchJSON } from '../utils/api/fetchApi';
+import { handleError } from '../utils/helpers/error';
 
 export const fetchAction = (url, options, type) => async (dispatch) => {
-    const res = await F.fetchJSON(url, options)
-    const data = res.body
+    try {
+        const res = await fetchJSON(url, options)
+        const data = res.body
 
-    dispatch({
-        type: type,
-        payload: data
-    })
+        !data.hasOwnProperty('status')
+        ? dispatch({ type: type, payload: data })
+        : dispatch({ type: 'ERROR', payload: data })
+    } catch (e) {
+        dispatch({ type: 'ERROR', payload: handleError(e) })
+    }
 }

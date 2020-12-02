@@ -8,15 +8,15 @@ export const setLoader = (loading) => ({
 })
 
 export const getPosts = (url, options) => {
-    return RA.fetchAction(url, options, 'GET_POSTS')
+    return RA.fetchAction(url, options, 'GET_ALL_POSTS')
 }
 
 export const createPost = (url, options) => {
-    return RA.fetchAction(url, options, 'ADD_POST')
+    return RA.fetchAction(url, options, 'ADD_NEW_POST')
 }
 
 export const readPost = (url, options) => {
-    return RA.fetchAction(url, options, 'GET_POST')
+    return RA.fetchAction(url, options, 'GET_SINGLE_POST')
 }
 
 export const updatePost = (url, options) => {

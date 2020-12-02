@@ -99,10 +99,10 @@
     margin-bottom: 10px;
     color: var(--red);
 }
-.Failed {
+.Hide {
     opacity: 0;
     transition: all 0.3s ease;
 }
-.Success {
+.Show {
     opacity: 1;
 }

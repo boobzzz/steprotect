@@ -16,7 +16,7 @@ oauth2Client.setCredentials({
 })
 const accessToken = oauth2Client.getAccessToken()
 
-const transporter = nodemailer.createTransport({
+export const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         type: "OAuth2",
@@ -36,5 +36,3 @@ transporter.verify((err, success) => {
     ? console.log('Error with the connection...')
     : console.log('Server is ready to take messages...')
 })
-
-export default transporter;

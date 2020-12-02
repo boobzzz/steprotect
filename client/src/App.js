@@ -8,7 +8,7 @@ import BlogList from './components/Blog/List/BlogList';
 import BlogDetails from './components/Blog/Details/BlogDetails';
 import AdminList from './components/Blog/Admin/List/AdminList';
 import AdminForm from './components/Blog/Admin/Form/AdminForm';
-import NoMatch from './components/UI/NoMatch/NoMatch';
+import { NoMatch } from './components/UI/NoMatch/NoMatch';
 import Footer from './components/Footer/Footer';
 import ScrollUpBtn from './components/UI/ScrollUpBtn/ScrollUpBtn';
 
