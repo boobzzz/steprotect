@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
-const NavBar = ({ toggle, close }) => {
+export const NavBar = ({ toggle, close }) => {
     return (
         <nav>
             <ul>
@@ -15,5 +15,3 @@ const NavBar = ({ toggle, close }) => {
         </nav>
     )
 }
-
-export default NavBar;

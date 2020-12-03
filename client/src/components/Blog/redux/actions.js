@@ -1,26 +1,26 @@
-import * as RA from '../../../store/rootActions';
+import { fetchApi } from '../../../store/middlewares';
 
-export const setLoader = (loading) => ({
+export const setLoaderAction = (loading) => ({
     type: 'SET_BLOG_LOADER',
     payload: loading
 })
 
-export const getPosts = (url, options) => {
-    return RA.fetchAction(url, options, 'GET_ALL_POSTS')
+export const getPostsAction = (url, options) => {
+    return fetchApi(url, options, 'GET_ALL_POSTS')
 }
 
-export const createPost = (url, options) => {
-    return RA.fetchAction(url, options, 'ADD_NEW_POST')
+export const createPostAction = (url, options) => {
+    return fetchApi(url, options, 'ADD_NEW_POST')
 }
 
-export const readPost = (url, options) => {
-    return RA.fetchAction(url, options, 'GET_SINGLE_POST')
+export const readPostAction = (url, options) => {
+    return fetchApi(url, options, 'GET_SINGLE_POST')
 }
 
-export const updatePost = (url, options) => {
-    return RA.fetchAction(url, options, 'EDIT_POST')
+export const updatePostAction = (url, options) => {
+    return fetchApi(url, options, 'EDIT_POST')
 }
 
-export const deletePost = (url, options) => {
-    return RA.fetchAction(url, options, 'REMOVE_POST')
+export const deletePostAction = (url, options) => {
+    return fetchApi(url, options, 'REMOVE_POST')
 }

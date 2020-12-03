@@ -1,9 +1,10 @@
 import nodemailer from 'nodemailer';
-import 'dotenv/config.js';
 import google_pkg from 'googleapis';
-const { google } = google_pkg;
+import 'dotenv/config.js';
 
-const OAuth2 = google.auth.OAuth2;
+const { google } = google_pkg
+
+const OAuth2 = google.auth.OAuth2
 
 const oauth2Client = new OAuth2(
      process.env.CLIENT_ID,

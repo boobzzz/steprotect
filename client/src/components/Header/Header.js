@@ -1,33 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import HamburgerMenu from 'react-hamburger-menu';
 
-import NavBar from './NavBar/NavBar';
-import FormOrder from '../Form/Order/FormOrder';
-import ModalContainer from '../UI/Modal/Modal';
-import classes from './Header.module.css';
-
+import { ModalContainer } from '../UI/Modal/Modal';
+import { NavBar } from './NavBar/NavBar';
+import { useHeader } from './useHeader';
+import OrderService from '../Order/Service/OrderService';
 import logoVr from '../../assets/logo/logo_vr.svg';
 import logoHr from '../../assets/logo/logo_hr.svg';
+import classes from './Header.module.css';
 
-const Header = (props) => {
-    const [ scrolled, setScrolled ] = useState(false)
-    const [ open, setOpen ] = useState(false)
-    const [ modal, setModal ] = useState(false)
+export const Header = () => {
+    const { scrolled, open, modal, toggleMenu, toggleModal } = useHeader()
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            const isTop = window.scrollY > 1
-            isTop ? setScrolled(true) : setScrolled(false)
-        })
-    }, [])
-
-    const toggleMenu = () => setOpen(!open)
-
-    const toggleModal = () => {
-        setModal(!modal)
-        setOpen(false)
-    }
+    const menuClass = open ? `${classes.Menu} ${classes.Show}` : classes.Menu
 
     return (
         <>
@@ -38,9 +24,7 @@ const Header = (props) => {
                             <img src={!scrolled ? logoVr : logoHr} alt=""/>
                         </Link>
                     </div>
-                    <div className={open
-                                    ? `${classes.Menu} ${classes.Show}`
-                                    : classes.Menu}>
+                    <div className={menuClass}>
                         <HamburgerMenu
                             isOpen={open}
                             menuClicked={toggleMenu}
@@ -59,9 +43,7 @@ const Header = (props) => {
                 modal={modal}
                 toggle={toggleModal}
                 title="Замовлення"
-                modalBody={<FormOrder />} />
+                modalBody={<OrderService />} />
         </>
     )
 }
-
-export default Header;

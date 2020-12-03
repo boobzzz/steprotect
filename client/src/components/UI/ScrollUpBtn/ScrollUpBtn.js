@@ -1,15 +1,11 @@
 import React from 'react';
 import ScrollUpButton from "react-scroll-up-button";
 
-const ScrollUpBtn = (props) => {
+export const ScrollUpBtn = (props) => {
     const btnStyles = {
         background: '#FF0000',
         outline: 'none'
     }
 
-    return (
-        <ScrollUpButton style={btnStyles} className="scrlupbtn" />
-    )
+    return <ScrollUpButton style={btnStyles} className="scrlupbtn" />
 }
-
-export default ScrollUpBtn;

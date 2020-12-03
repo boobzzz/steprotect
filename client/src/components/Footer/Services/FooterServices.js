@@ -1,27 +1,15 @@
 import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
-import * as S from '../redux/selectors';
+import { getSlider } from '../../Main/Services/redux/selectors';
+import { FaAngleRight } from 'react-icons/fa';
 
-import * as Fa from 'react-icons/fa';
+import { services } from './services';
 import classes from './FooterServices.module.css';
 
-const services = [
-    'Відеоспостереження',
-    'Виявлення систем стеження',
-    'Охоронна сигналізація',
-    'Системи доступу',
-    'Комп\'ютерні мережі',
-    'GSM зв\'язок'
-]
-
-const FooterServices = (props) => {
-    const { slider } = props
-
+const FooterServices = ({ slider }) => {
     const moveToSlide = (i) => {
-        return props.slider !== null
-               ? slider.slickGoTo(i)
-               : null
+        return slider !== null ? slider.slickGoTo(i) : null
     }
 
     return (
@@ -34,7 +22,7 @@ const FooterServices = (props) => {
                             smooth
                             to="/#services"
                             onClick={() => moveToSlide(i)}>
-                            <Fa.FaAngleRight /><span>{service}</span>
+                            <FaAngleRight /><span>{service}</span>
                         </Link>
                     </li>
                 )}
@@ -45,7 +33,7 @@ const FooterServices = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        slider: S.getSlider(state)
+        slider: getSlider(state)
     }
 }
 

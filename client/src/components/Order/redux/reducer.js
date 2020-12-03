@@ -3,7 +3,7 @@ const initialState = {
     message: ''
 }
 
-const orderReducer = (state = initialState, action) => {
+export const orderReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
@@ -27,5 +27,3 @@ const orderReducer = (state = initialState, action) => {
             return state
     }
 }
-
-export default orderReducer;

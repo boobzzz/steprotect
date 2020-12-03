@@ -1,25 +1,13 @@
 import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import { FaViber } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 
 import footerLogo from '../../../assets/logo/logo_footer.svg';
-import * as Fa from 'react-icons/fa';
-import * as Fi from 'react-icons/fi';
+import { socials } from './socials';
 import classes from './FooterLogo.module.css';
 
-const socials = [
-    {
-        id: 1,
-        icon: <Fa.FaFacebookF />,
-        link: "https://www.facebook.com/SteProtect-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B8-%D0%B1%D0%B5%D0%B7%D0%BF%D0%B5%D0%BA%D0%B8-111437237394913/"
-    },
-    {
-        id: 2,
-        icon: <Fa.FaInstagram />,
-        link: "https://www.instagram.com/steprotect/?hl=uk"
-    }
-]
-
-const FooterLogo = (props) => {
+export const FooterLogo = () => {
     return (
         <div id="contacts" className={classes.Logo}>
             <Link smooth to="/#top">
@@ -33,10 +21,10 @@ const FooterLogo = (props) => {
             </p>
             <div>
                 <a href="viber://add?number=380676731457">
-                    <i><Fa.FaViber /><span>+38 (067) 673 14 57</span></i>
+                    <i><FaViber /><span>+38 (067) 673 14 57</span></i>
                 </a>
                 <a href="mailto:steprotect.ua@gmail.com">
-                    <i><Fi.FiMail /><span>steprotect.ua@gmail.com</span></i>
+                    <i><FiMail /><span>steprotect.ua@gmail.com</span></i>
                 </a>
             </div>
             <ul>
@@ -54,5 +42,3 @@ const FooterLogo = (props) => {
         </div>
     )
 }
-
-export default FooterLogo;

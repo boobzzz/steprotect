@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 
-const FieldTextArea = ({ id, type, label, cols, rows }) => {
+export const FieldTextArea = ({ id, type, label }) => {
     return (
         <div>
             <label htmlFor={id}>{label}</label>
@@ -22,5 +22,3 @@ const FieldTextArea = ({ id, type, label, cols, rows }) => {
         </div>
     )
 }
-
-export default FieldTextArea;

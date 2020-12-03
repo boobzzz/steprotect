@@ -1,7 +1,7 @@
-import { fetchJSON } from '../utils/api/fetchApi';
+import { fetchJSON } from '../utils/api/fetchJSON';
 import { handleError } from '../utils/helpers/error';
 
-export const fetchAction = (url, options, type) => async (dispatch) => {
+export const fetchApi = (url, options, type) => async (dispatch) => {
     try {
         const res = await fetchJSON(url, options)
         const data = res.body

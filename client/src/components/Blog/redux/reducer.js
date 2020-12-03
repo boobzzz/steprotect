@@ -6,7 +6,7 @@ const initialState = {
     currentPost: {}
 }
 
-const blogReducer = (state = initialState, action) => {
+export const blogReducer = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
         case 'SET_BLOG_LOADER':
@@ -53,5 +53,3 @@ const blogReducer = (state = initialState, action) => {
             return state
     }
 }
-
-export default blogReducer;

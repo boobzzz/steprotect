@@ -5,7 +5,7 @@ import { IMaskInput } from 'react-imask';
 
 const phoneMask = '{+38} (000)000-00-00'
 
-const FieldPhone = ({ id, label }) => {
+export const FieldPhone = ({ id, label }) => {
     const { setFieldValue } = useFormikContext()
     
     const changeHandler = (value, mask) => {
@@ -17,14 +17,14 @@ const FieldPhone = ({ id, label }) => {
             <label htmlFor={id}>{label}</label>
             <Field name={id}>
                 {({ field, meta }) =>
-                <div>
-                    <IMaskInput
-                        id={id}
-                        mask={phoneMask}
-                        unmask={true}
-                        onAccept={changeHandler}
-                        lazy={false}
-                        {...field} />
+                    <div>
+                        <IMaskInput
+                            id={id}
+                            mask={phoneMask}
+                            unmask={true}
+                            onAccept={changeHandler}
+                            lazy={false}
+                            {...field} />
                         {meta.touched && meta.error
                         ? <div>{meta.error}</div>
                         : null}
@@ -34,5 +34,3 @@ const FieldPhone = ({ id, label }) => {
         </div>
     )
 }
-
-export default FieldPhone;

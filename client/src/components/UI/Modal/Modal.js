@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 import './modal.css';
 
-const ModalContainer = (props) => {
+export const ModalContainer = (props) => {
     const { modal, toggle, title, modalBody } = props
     const closeBtn =
         <button className="closeBtn" onClick={toggle}>
@@ -21,5 +21,3 @@ const ModalContainer = (props) => {
         </Modal>
     )
 }
-
-export default ModalContainer;

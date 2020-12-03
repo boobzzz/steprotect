@@ -1,27 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
 import { connect } from 'react-redux';
-import * as S from '../redux/selectors';
-import * as A from '../redux/actions';
+import { isLoading, getMessage } from '../redux/selectors';
+import { setLoaderAction, sendOrderAction, resetMessageAction } from '../redux/actions';
 
-import ButtonSpinner from '../../UI/Spinners/Button/ButtonSpinner';
-import FieldText from '../../UI/Field/Text/FieldText';
-import FieldPhone from '../../UI/Field/Phone/FieldPhone';
-import FieldSelect from '../../UI/Field/Select/FieldSelect';
+import { ButtonSpinner } from '../../UI/Spinners/Button/ButtonSpinner';
+import { FieldText } from '../../UI/Field/Text/FieldText';
+import { FieldPhone } from '../../UI/Field/Phone/FieldPhone';
+import { FieldSelect } from '../../UI/Field/Select/FieldSelect';
+import { useService } from './useService';
+import { options } from './options';
+import classes from './OrderService.module.css';
 
-import classes from './FormOrder.module.css';
-
-const options = [
-    {name: 'Виберіть послугу...', value: ''},
-    {name: 'Відеоспостереження', value: 'video'},
-    {name: 'Виявлення систем стеження', value: 'spy'},
-    {name: 'Охоронна сигналізація', value: 'alarm'},
-    {name: 'Системи доступу', value: 'access'},
-    {name: 'Комп\'ютерні мережі', value: 'intenet'},
-    {name: 'GSM зв\'язок', value: 'gsm'},
-]
 const initialValues = {
     name: '',
     services: '',
@@ -41,29 +33,13 @@ const style = css`
     height: 3px;
 `
 
-const FormOrder = (props) => {
+const OrderService = (props) => {
     const { isLoading, message, setLoader, sendOrder, resetMessage } = props
-    const [ showMessage, setShowMessage ] = useState(false)
+    const serviceParams = [isLoading, setLoader, sendOrder, resetMessage]
+    const { showMessage, handleSubmit } = useService(...serviceParams)
 
     const msgShowToggle = showMessage ? classes.Show : classes.Hide
-
-    const handleSubmit = (values, {resetForm}) => {
-        let options = {
-            method: 'POST',
-            body: values
-        }
-
-        setLoader(true)
-        sendOrder('/send/order', options)
-        resetForm({ values: '' })
-
-        if (!isLoading) setShowMessage(true)
-        setTimeout(() => {
-            setShowMessage(false)
-            resetMessage()
-        }, 5000)
-    }
-
+    
     return (
         <>
             <div className={classes.Form}>
@@ -104,17 +80,17 @@ const FormOrder = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        message: S.getMessage(state)
+        isLoading: isLoading(state),
+        message: getMessage(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLoader: (loading) => dispatch(A.setLoader(loading)),
-        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
-        resetMessage: () => dispatch(A.resetMessage())
+        setLoader: (loading) => dispatch(setLoaderAction(loading)),
+        sendOrder: (url, options) => dispatch(sendOrderAction(url, options)),
+        resetMessage: () => dispatch(resetMessageAction())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormOrder);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderService);

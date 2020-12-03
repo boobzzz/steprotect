@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isEmpty } from 'lodash';
-import * as S from '../redux/selectors';
-import * as A from '../redux/actions';
+import { isEmpty } from 'ramda';
+import { isLoading, getError, getPosts } from '../redux/selectors';
+import { getPostsAction } from '../redux/actions';
 
-import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
+import { PageSpinner } from '../../UI/Spinners/Page/PageSpinner';
 import { NoMatch } from '../../UI/NoMatch/NoMatch';
 import BlogItem from '../Item/BlogItem';
 import classes from './BlogList.module.css';
@@ -50,15 +50,15 @@ const BlogList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        error: S.getError(state),
-        posts: S.getPosts(state)
+        isLoading: isLoading(state),
+        error: getError(state),
+        posts: getPosts(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getPosts: (url, options) => dispatch(A.getPosts(url, options))
+        getPosts: (url, options) => dispatch(getPostsAction(url, options))
     }
 }
 

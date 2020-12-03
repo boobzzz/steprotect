@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './SectionHeader.module.css';
 
-const SectionHeader = (props) => {
+export const SectionHeader = (props) => {
     const { section, title, titleColor } = props
 
     return (
@@ -14,5 +14,3 @@ const SectionHeader = (props) => {
         </div>
     )
 }
-
-export default SectionHeader;

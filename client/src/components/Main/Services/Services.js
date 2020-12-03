@@ -1,11 +1,10 @@
 import React from 'react';
 
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import { SectionHeader } from '../../UI/SectionHeader/SectionHeader';
 import ServicesSlider from './Slider/ServicesSlider';
-
 import classes from './Services.module.css';
 
-const Services = (props) => {
+export const Services = () => {
     return (
         <section id="services" className={classes.Services}>
             <div className="wrapper">
@@ -18,5 +17,3 @@ const Services = (props) => {
         </section>
     )
 }
-
-export default Services;

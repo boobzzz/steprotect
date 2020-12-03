@@ -96,6 +96,7 @@
 
 .Msg {
     display: inline-block;
+    min-height: 24px;
     margin-bottom: 10px;
     color: var(--red);
 }

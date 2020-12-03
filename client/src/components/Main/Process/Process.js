@@ -1,32 +1,10 @@
 import React from 'react';
 
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
-
+import { SectionHeader } from '../../UI/SectionHeader/SectionHeader';
+import { stages } from './stages';
 import classes from './Process.module.css';
 
-const stages = [
-    {
-        phase: '01',
-        title: 'Проведення обстеження',
-        desc: `Наш фахівець проводить обстеження об'єкту та формує кошторисну
-               пропозицію. Дана послуга є безкоштовною.`
-    },
-    {
-        phase: '02',
-        title: 'Узгодження',
-        desc: `На етапі узгодження проекту ми обговорюємо усі можливі нюанси та
-               терміни виконання. На цьому етапі ви оплачуєте лише вартість обладнання.`
-    },
-    {
-        phase: '03',
-        title: 'Монтаж, тестування, запуск та інструктаж',
-        desc: `Виконуємо монтаж, налаштовуємо систему, тестуємо та проводимо
-               інструктаж для користувачів. По завершенню усіх етапів, ви
-               оплачуєте вартість виконаних робіт.`
-    }
-]
-
-const Process = (props) => {
+export const Process = () => {
     return (
         <section id="process" className={classes.Process}>
             <div className="wrapper">
@@ -52,5 +30,3 @@ const Process = (props) => {
         </section>
     )
 }
-
-export default Process;

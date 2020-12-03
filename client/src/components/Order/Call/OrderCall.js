@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
 import { connect } from 'react-redux';
-import * as S from '../redux/selectors';
-import * as A from '../redux/actions';
+import { isLoading, getMessage } from '../redux/selectors';
+import { setLoaderAction, sendOrderAction, resetMessageAction } from '../redux/actions';
 
-import ButtonSpinner from '../../UI/Spinners/Button/ButtonSpinner';
-import FieldPhone from '../../UI/Field/Phone/FieldPhone';
+import { ButtonSpinner } from '../../UI/Spinners/Button/ButtonSpinner';
+import { FieldPhone } from '../../UI/Field/Phone/FieldPhone';
 import { GoArrowRight } from 'react-icons/go';
-
-import classes from './FormCall.module.css';
+import { useCall } from './useCall';
+import classes from './OrderCall.module.css';
 
 const initialValues = {
     phone: ''
@@ -22,43 +22,14 @@ const style = css`
     width: 200px;
     height: 5px;
 `
-const FormCall = (props) => {
-    const { slide, isLoading, message, setLoader, sendOrder, resetMessage } = props
-    const [ showCallForm, setShowCallForm ] = useState(false)
-    const [ showMessage, setShowMessage ] = useState(false)
-
+const OrderCall = (props) => {
+    const { btn, isLoading, message, setLoader, sendOrder, resetMessage } = props
+    const callParams = [isLoading, setLoader, sendOrder, resetMessage]
+    const { showCallForm, showMessage, toggleCallOrderBtn, handleSubmit } = useCall(...callParams)
+    
     const msgShowToggle = showMessage ? classes.Show : classes.Hide
     const callFormToggle = showCallForm ? classes.Clicked : ''
-
-    useEffect(() => {
-        window.addEventListener('click', () => {
-            setShowCallForm(false)
-        })
-    }, [])
-
-    const toggleCallOrderBtn = (e) => {
-        e.stopPropagation()
-        setShowCallForm(true)
-        setShowMessage(false)
-    }
-
-    const handleSubmit = (values, { resetForm }) => {
-        let options = {
-            method: 'POST',
-            body: values
-        }
-
-        setLoader(true)
-        sendOrder('/send/call', options)
-        resetForm({ values: '' })
-
-        if (!isLoading) setShowMessage(true)
-        setTimeout(() => {
-            setShowMessage(false)
-            resetMessage()
-        }, 5000)
-    }
-
+    
     return (
         <>
             <span className={`${classes.Msg} ${msgShowToggle}`}>
@@ -67,7 +38,7 @@ const FormCall = (props) => {
             <div
                 className={`${classes.Button} ${callFormToggle}`}
                 onClick={toggleCallOrderBtn}>
-                <i>{slide.btn}</i>
+                <i>{btn}</i>
                 {isLoading
                  ? <ButtonSpinner
                         style={style}
@@ -96,17 +67,17 @@ const FormCall = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        message: S.getMessage(state)
+        isLoading: isLoading(state),
+        message: getMessage(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLoader: (loading) => dispatch(A.setLoader(loading)),
-        sendOrder: (url, options) => dispatch(A.sendOrder(url, options)),
-        resetMessage: () => dispatch(A.resetMessage())
+        setLoader: (loading) => dispatch(setLoaderAction(loading)),
+        sendOrder: (url, options) => dispatch(sendOrderAction(url, options)),
+        resetMessage: () => dispatch(resetMessageAction())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormCall);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderCall);

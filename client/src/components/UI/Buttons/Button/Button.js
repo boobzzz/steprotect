@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import classes from './Button.module.css';
 
-const Button = ({ path, label, clicked }) => {
+export const Button = ({ path, label, clicked }) => {
     return (
         <NavLink
             to={path}
@@ -13,5 +13,3 @@ const Button = ({ path, label, clicked }) => {
         </NavLink>
     )
 }
-
-export default Button;

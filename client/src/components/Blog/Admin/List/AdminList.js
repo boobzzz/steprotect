@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'ramda';
+import { isLoading, getError, getPosts } from '../../redux/selectors';
+import { getPostsAction } from '../../redux/actions';
 
-import * as S from '../../redux/selectors';
-import * as A from '../../redux/actions';
-
-import PageSpinner from '../../../UI/Spinners/Page/PageSpinner';
+import { PageSpinner } from '../../../UI/Spinners/Page/PageSpinner';
 import { NoMatch } from '../../../UI/NoMatch/NoMatch';
+import { Button } from '../../../UI/Buttons/Button/Button';
 import BlogItem from '../../Item/BlogItem';
-import Button from '../../../UI/Buttons/Button/Button';
 import classes from './AdminList.module.css';
 
 const AdminList = (props) => {
-    const { posts, isLoading, error, getPosts } = props
+    const { isLoading, error, posts, getPosts } = props
 
     useEffect(() => {
         getPosts('/blog/posts')
@@ -53,15 +52,15 @@ const AdminList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        error: S.getError(state),
-        posts: S.getPosts(state)
+        isLoading: isLoading(state),
+        error: getError(state),
+        posts: getPosts(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getPosts: (url, options) => dispatch(A.getPosts(url, options))
+        getPosts: (url, options) => dispatch(getPostsAction(url, options))
     }
 }
 

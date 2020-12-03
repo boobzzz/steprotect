@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'formik';
 
-const FieldSelect = ({ id, label, options }) => {
+export const FieldSelect = ({ id, label, options }) => {
     return (
         <div>
             <label htmlFor={id}>{label}</label>
@@ -24,5 +24,3 @@ const FieldSelect = ({ id, label, options }) => {
         </div>
     )
 }
-
-export default FieldSelect;

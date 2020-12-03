@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { css } from "@emotion/core";
+import { css } from '@emotion/core';
 import { connect } from 'react-redux';
-import * as S from '../../redux/selectors';
-import * as A from '../../redux/actions';
+import { isLoading, getSuccess, getError, getCurrentPost } from '../../redux/selectors';
+import { setLoaderAction, readPostAction, createPostAction, updatePostAction } from '../../redux/actions';
 
-import ButtonSpinner from '../../../UI/Spinners/Button/ButtonSpinner';
-import FieldText from '../../../UI/Field/Text/FieldText';
-import FieldTextArea from '../../../UI/Field/TextArea/FieldTextArea';
+import { ButtonSpinner } from '../../../UI/Spinners/Button/ButtonSpinner';
+import { FieldText } from '../../../UI/Field/Text/FieldText';
+import { FieldTextArea } from '../../../UI/Field/TextArea/FieldTextArea';
+import { useAdminForm } from './useAdminForm';
 import classes from './AdminForm.module.css';
 
 const initialValues = {
@@ -30,41 +31,16 @@ const style = css`
 const AdminForm = (props) => {
     const { isLoading, success, error, currentPost, setLoader, readPost, createPost, updatePost } = props
     const { id } = useParams()
+    const adminFormParams = [id, isLoading, readPost, setLoader, createPost, updatePost]
+    const { showMessage, handleSubmit } = useAdminForm(...adminFormParams)
+
     const currentPostValues = {
         img: currentPost.img,
         title: currentPost.title,
         text: currentPost.text
     }
-    const [ showMessage, setShowMessage ] = useState(false)
-    console.log(success.message)
-    const messageClass = showMessage
-                         ? `${classes.Msg} ${classes.Show}`
-                         : `${classes.Msg} ${classes.Hide}`
-
-    useEffect(() => {
-        setLoader(false)
-        id && readPost(`/blog/posts/${id}`)
-    }, [setLoader, readPost, id])
-
-    const handleSubmit = (values, { resetForm }) => {
-        let options = {
-            method: !id ? 'POST' : 'PUT',
-            body: values
-        }
-
-        setLoader(true)
-        
-        !id
-        ? createPost('/blog/posts', options)
-        : updatePost(`/blog/posts/${id}`, options)
-        
-        if (!id) resetForm()
-
-        if (!isLoading) setShowMessage(true)
-        setTimeout(() => {
-            setShowMessage(false)
-        }, 5000)
-    }
+    
+    const messageClass = showMessage ? classes.Show : classes.Hide
 
     return (
         <div className={classes.NewPost}>
@@ -83,7 +59,7 @@ const AdminForm = (props) => {
                                 <FieldText id="img" type="text" label="URL зображення *" />
                                 <FieldText id="title" type="text" label="назва *" />
                                 <FieldTextArea id="text" type="text" label="текст *" />
-                                <span className={messageClass}>
+                                <span className={`${classes.Msg} ${messageClass}`}>
                                     {success.message ? success.message : error.message}
                                 </span>
                                 <div className={classes.SubmitBtn}>
@@ -107,19 +83,19 @@ const AdminForm = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        success: S.getSuccess(state),
-        error: S.getError(state),
-        currentPost: S.getCurrentPost(state)
+        isLoading: isLoading(state),
+        success: getSuccess(state),
+        error: getError(state),
+        currentPost: getCurrentPost(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLoader: (loading) => dispatch(A.setLoader(loading)),
-        readPost: (url, options) => dispatch(A.readPost(url, options)),
-        createPost: (url, options) => dispatch(A.createPost(url, options)),
-        updatePost: (url, options) => dispatch(A.updatePost(url, options))
+        setLoader: (loading) => dispatch(setLoaderAction(loading)),
+        readPost: (url, options) => dispatch(readPostAction(url, options)),
+        createPost: (url, options) => dispatch(createPostAction(url, options)),
+        updatePost: (url, options) => dispatch(updatePostAction(url, options))
     }
 }
 

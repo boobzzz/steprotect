@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isEmpty } from 'lodash';
-import * as S from '../redux/selectors';
-import * as A from '../redux/actions';
+import { isEmpty } from 'ramda';
+import { isLoading, getError, getCurrentPost } from '../redux/selectors';
+import { readPostAction } from '../redux/actions';
 
-import PageSpinner from '../../UI/Spinners/Page/PageSpinner';
+import { PageSpinner } from '../../UI/Spinners/Page/PageSpinner';
 import { NoMatch } from '../../UI/NoMatch/NoMatch';
-import SectionHeader from '../../UI/SectionHeader/SectionHeader';
+import { SectionHeader } from '../../UI/SectionHeader/SectionHeader';
 import classes from './BlogDetails.module.css';
 
 const BlogDetails = (props) => {
@@ -61,15 +61,15 @@ const BlogDetails = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: S.isLoading(state),
-        error: S.getError(state),
-        currentPost: S.getCurrentPost(state)
+        isLoading: isLoading(state),
+        error: getError(state),
+        currentPost: getCurrentPost(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        readPost: (url, options) => dispatch(A.readPost(url, options))
+        readPost: (url, options) => dispatch(readPostAction(url, options))
     }
 }
 

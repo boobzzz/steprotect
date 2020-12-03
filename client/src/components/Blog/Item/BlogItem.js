@@ -2,17 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
-import * as A from '../redux/actions';
+import { deletePostAction } from '../redux/actions';
 
-import Button from '../../UI/Buttons/Button/Button';
-import DetailsBtn from '../../UI/Buttons/DetailsBtn/DetailsBtn';
+import { Button } from '../../UI/Buttons/Button/Button';
+import { DetailsBtn } from '../../UI/Buttons/DetailsBtn/DetailsBtn';
 import classes from './BlogItem.module.css';
 
 const BlogItem = (props) => {
     const { post, deletePost } = props
 
     const removePost = () => {
-        const options = { method: 'DELETE' }
+        const options = {
+            method: 'DELETE'
+        }
 
         deletePost(`/blog/posts/${post._id}`, options)
     }
@@ -43,7 +45,7 @@ const BlogItem = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deletePost: (url, options) => dispatch(A.deletePost(url, options))
+        deletePost: (url, options) => dispatch(deletePostAction(url, options))
     }
 }
 
