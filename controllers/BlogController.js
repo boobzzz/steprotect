@@ -44,7 +44,7 @@ export const readPost = async (req, res, next) => {
 
 export const updatePost = async (req, res, next) => {
     try {
-        await Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
+        await Post.findByIdAndUpdate(req.params.id, { $set: req.body }, (err) => {
             err
             ? next(new ErrorX(500, `Не вдалося внести зміни, будь ласка спробуйте пізніше`))
             : res.json({ message: 'Пост було успішно змінено' })

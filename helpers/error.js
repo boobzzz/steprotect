@@ -7,7 +7,9 @@ export class ErrorX extends Error {
 }
 
 export const handleError = (err, res) => {
-    const { status, message } = err
+    let { status, message } = err
+    
+    if (!status) status = 500
 
     res.status(status).json({
         status,
