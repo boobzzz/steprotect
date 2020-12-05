@@ -10,7 +10,7 @@ import { setLoaderAction, readPostAction, createPostAction, updatePostAction } f
 import { ButtonSpinner } from '../../../UI/Spinners/Button/ButtonSpinner';
 import { FieldText } from '../../../UI/Field/Text/FieldText';
 import { FieldTextArea } from '../../../UI/Field/TextArea/FieldTextArea';
-import { useAdminForm } from './useAdminForm';
+import { useForm } from './useForm';
 import classes from './AdminForm.module.css';
 
 const initialValues = {
@@ -32,7 +32,7 @@ const AdminForm = (props) => {
     const { isLoading, success, error, currentPost, setLoader, readPost, createPost, updatePost } = props
     const { id } = useParams()
     const adminFormParams = [id, isLoading, readPost, setLoader, createPost, updatePost]
-    const { showMessage, handleSubmit } = useAdminForm(...adminFormParams)
+    const { showMessage, handleSubmit } = useForm(...adminFormParams)
 
     const currentPostValues = {
         img: currentPost.img,

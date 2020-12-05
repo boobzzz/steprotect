@@ -36,6 +36,7 @@ export const blogReducer = (state = initialState, action) => {
             }
         case 'ADD_NEW_POST':
         case 'EDIT_POST':
+        case 'ADMIN_AUTH':
             return {
                 ...state,
                 isLoading: false,

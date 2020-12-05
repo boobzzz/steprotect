@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useService = (isLoading, setLoader, sendOrder, resetMessage) => {
+export const useForm = (isLoading, setLoader, sendOrder, resetMessage) => {
     const [ showMessage, setShowMessage ] = useState(false)
 
     const handleSubmit = (values, {resetForm}) => {

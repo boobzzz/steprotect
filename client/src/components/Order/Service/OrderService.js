@@ -10,7 +10,7 @@ import { ButtonSpinner } from '../../UI/Spinners/Button/ButtonSpinner';
 import { FieldText } from '../../UI/Field/Text/FieldText';
 import { FieldPhone } from '../../UI/Field/Phone/FieldPhone';
 import { FieldSelect } from '../../UI/Field/Select/FieldSelect';
-import { useService } from './useService';
+import { useForm } from './useForm';
 import { options } from './options';
 import classes from './OrderService.module.css';
 
@@ -36,45 +36,43 @@ const style = css`
 const OrderService = (props) => {
     const { isLoading, message, setLoader, sendOrder, resetMessage } = props
     const serviceParams = [isLoading, setLoader, sendOrder, resetMessage]
-    const { showMessage, handleSubmit } = useService(...serviceParams)
+    const { showMessage, handleSubmit } = useForm(...serviceParams)
 
     const msgShowToggle = showMessage ? classes.Show : classes.Hide
     
     return (
-        <>
-            <div className={classes.Form}>
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={handleSubmit}>
-                    {() => {
-                        return (
-                            <Form>
-                                <FieldText id="name" type="text" label="ім'я *" />
-                                <FieldSelect id="services" label="послуга *" options={options} />
-                                <FieldPhone id="phone" label="номер телефону *" />
-                                <FieldText id="email" type="email" label="електронна скринька *" />
-                                <span className={`${classes.Msg} ${msgShowToggle}`}>
-                                    {message}
-                                </span>
-                                <div className={classes.SubmitBtn}>
-                                    {isLoading
-                                     ? <div>
-                                           <ButtonSpinner
-                                               style={style}
-                                               color="#FF0000"
-                                               loading={isLoading} />
-                                       </div>
-                                     : <button type="submit">
-                                           замовити
-                                       </button>}
-                                </div>
-                            </Form>
-                        )
-                    }}
-                </Formik>
-            </div>
-        </>
+        <div className={classes.Form}>
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}>
+                {() => {
+                    return (
+                        <Form>
+                            <FieldText id="name" type="text" label="ім'я *" />
+                            <FieldSelect id="services" label="послуга *" options={options} />
+                            <FieldPhone id="phone" label="номер телефону *" />
+                            <FieldText id="email" type="email" label="електронна скринька *" />
+                            <span className={`${classes.Msg} ${msgShowToggle}`}>
+                                {message}
+                            </span>
+                            <div className={classes.SubmitBtn}>
+                                {isLoading
+                                    ? <div>
+                                          <ButtonSpinner
+                                              style={style}
+                                              color="#FF0000"
+                                              loading={isLoading} />
+                                      </div>
+                                    : <button type="submit">
+                                          замовити
+                                      </button>}
+                            </div>
+                        </Form>
+                    )
+                }}
+            </Formik>
+        </div>
     )
 }
 

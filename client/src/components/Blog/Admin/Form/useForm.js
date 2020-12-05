@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useAdminForm = (id, isLoading, readPost, setLoader, createPost, updatePost) => {
+export const useForm = (id, isLoading, readPost, setLoader, createPost, updatePost) => {
     const [ showMessage, setShowMessage ] = useState(false)
 
     useEffect(() => {

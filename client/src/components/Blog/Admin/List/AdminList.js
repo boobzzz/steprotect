@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
-import { isLoading, getError, getPosts } from '../../redux/selectors';
+import { isLoading, getError, getPosts, getSuccess } from '../../redux/selectors';
 import { getPostsAction } from '../../redux/actions';
 
 import { PageSpinner } from '../../../UI/Spinners/Page/PageSpinner';
@@ -45,7 +45,7 @@ const AdminList = (props) => {
                             label="Новий пост" />
                     </div>
                 </div>
-            </section>  
+            </section>
         </main>
     )
 }
@@ -53,6 +53,7 @@ const AdminList = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLoading: isLoading(state),
+        success: getSuccess(state),
         error: getError(state),
         posts: getPosts(state)
     }

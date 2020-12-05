@@ -9,6 +9,7 @@ import { ScrollToTop } from './components/UI/ScrollToTop/ScrollToTop';
 import { ScrollUpBtn } from './components/UI/ScrollUpBtn/ScrollUpBtn';
 import BlogList from './components/Blog/List/BlogList';
 import BlogDetails from './components/Blog/Details/BlogDetails';
+import AdminAuth from './components/Blog/Admin/Auth/AdminAuth';
 import AdminList from './components/Blog/Admin/List/AdminList';
 import AdminForm from './components/Blog/Admin/Form/AdminForm';
 
@@ -29,6 +30,9 @@ function App() {
                         <BlogDetails />
                     </Route>
                     <Route exact path="/administration">
+                        <AdminAuth />
+                    </Route>
+                    <Route exact path="/administration/list">
                         <AdminList />
                     </Route>
                     <Route path="/administration/post/create">

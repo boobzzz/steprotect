@@ -24,3 +24,7 @@ export const updatePostAction = (url, options) => {
 export const deletePostAction = (url, options) => {
     return fetchApi(url, options, 'REMOVE_POST')
 }
+
+export const adminAuthAction = (url, options) => {
+    return fetchApi(url, options, 'ADMIN_AUTH')
+}
