@@ -12,7 +12,6 @@ export const fetchJSON = async (url, options = {}) => {
     })
 
     let res = await fetch(url, options)
-    console.log(res)
 
     if ((res.headers.get('Content-Type') || '').includes('application/json')) {
         try {

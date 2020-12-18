@@ -6,7 +6,6 @@ import favicon from 'serve-favicon';
 import 'dotenv/config.js';
 
 import indexRoute from './routes/index.js';
-// import { ErrorX } from './helpers/error.js';
 import { handleError } from './helpers/error.js';
 import './config/database.js';
 
@@ -26,11 +25,6 @@ app.use(express.json())
 // API routes
 app.use('/', indexRoute)
 
-// 404 handler
-// app.use((req, res, next) => {
-    //     next(new ErrorX(404, 'Ресурс не знайдено, але він може бути доступний в майбутньому'))
-    // })
-    
 // Custom error handler
 app.use((err, req, res, next) => {
     handleError(err, res)

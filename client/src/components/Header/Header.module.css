@@ -99,12 +99,12 @@ header.Fixed {
     height: 100%;
 }
 .Hamburger + nav ul a::before {
-    border-top: 2px solid var(--red);
-    border-bottom: 2px solid var(--red);
+    border-top: 3px solid var(--red);
+    border-bottom: 3px solid var(--red);
 }
 .Fixed .Hamburger + nav ul a::before {
-    border-top: 2px solid var(--white);
-    border-bottom: 2px solid var(--white);
+    border-top: 3px solid var(--white);
+    border-bottom: 3px solid var(--white);
 }
 .Hamburger + nav ul a::after,
 .Fixed .Hamburger + nav ul a::after {
@@ -113,12 +113,12 @@ header.Fixed {
     height: 0;
 }
 .Hamburger + nav ul a::after {
-    border-left: 2px solid var(--red);
-    border-right: 2px solid var(--red);
+    border-left: 3px solid var(--red);
+    border-right: 3px solid var(--red);
 }
 .Fixed .Hamburger + nav ul a::after {
-    border-left: 2px solid var(--white);
-    border-right: 2px solid var(--white);
+    border-left: 3px solid var(--white);
+    border-right: 3px solid var(--white);
 }
 .Hamburger + nav ul a:hover::before,
 .Fixed .Hamburger + nav ul a:hover::before {
