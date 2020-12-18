@@ -26,7 +26,6 @@ const OrderCall = (props) => {
     const { btn, isLoading, message, setLoader, sendOrder, resetMessage } = props
     const callParams = [isLoading, setLoader, sendOrder, resetMessage]
     const { showCallForm, showMessage, toggleCallOrderBtn, handleSubmit } = useCall(...callParams)
-    
     const msgShowToggle = showMessage ? classes.Show : classes.Hide
     const callFormToggle = showCallForm ? classes.Clicked : ''
     

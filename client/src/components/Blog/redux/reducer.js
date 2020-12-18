@@ -3,7 +3,8 @@ const initialState = {
     success: {},
     error: {},
     posts: [],
-    currentPost: {}
+    currentPost: {},
+    isLoggedIn: false
 }
 
 export const blogReducer = (state = initialState, action) => {
@@ -13,6 +14,24 @@ export const blogReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: payload
+            }
+        case 'ADMIN_AUTH':
+            return {
+                ...state,
+                isLoading: false,
+                success: payload,
+                error: {},
+                isLoggedIn: true
+            }
+        case 'SET_LOGGED_IN':
+            return {
+                ...state,
+                isLoggedIn: payload
+            }
+        case 'RESET_SUCCESS':
+            return {
+                ...state,
+                success: {}
             }
         case 'ERROR':
             return {
@@ -36,7 +55,6 @@ export const blogReducer = (state = initialState, action) => {
             }
         case 'ADD_NEW_POST':
         case 'EDIT_POST':
-        case 'ADMIN_AUTH':
             return {
                 ...state,
                 isLoading: false,

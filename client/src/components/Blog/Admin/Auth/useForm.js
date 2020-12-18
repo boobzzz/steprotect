@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { isEmpty } from 'ramda';
 
-export const useForm = (isLoading, error, setLoader, sendForm) => {
+export const useForm = (isLoading, setLoader, sendForm) => {
     const [ showMessage, setShowMessage ] = useState(false)
 
     useEffect(() => {
@@ -17,7 +16,8 @@ export const useForm = (isLoading, error, setLoader, sendForm) => {
         setLoader(true)
         sendForm('/admin/login', options)
 
-        if (!isLoading && !isEmpty(error)) setShowMessage(true)
+        if (!isLoading) setShowMessage(true)
+
         setTimeout(() => {
             setShowMessage(false)
         }, 5000)

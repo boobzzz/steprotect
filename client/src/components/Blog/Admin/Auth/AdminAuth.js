@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { css } from "@emotion/core";
 import { connect } from 'react-redux';
+import { isEmpty } from 'ramda';
 
-import { isLoading, getError, getSuccess } from '../../redux/selectors';
-import { setLoaderAction, adminAuthAction } from '../../redux/actions';
+import { isLoading, getError, getSuccess, getLoggedIn } from '../../redux/selectors';
+import { setLoaderAction, adminAuthAction, resetSuccessAction, setIsLoggedIn } from '../../redux/actions';
 import { ButtonSpinner } from '../../../UI/Spinners/Button/ButtonSpinner';
 import { FieldText } from '../../../UI/Field/Text/FieldText';
 import { useForm } from './useForm';
-import { useAuth } from './useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import classes from './AdminAuth.module.css';
 
 const initialValues = {
@@ -27,13 +28,15 @@ const style = css`
 `
 
 const AdminAuth = (props) => {
-    const { isLoading, success, error, setLoader, sendForm } = props
-    
-    const authParams = [isLoading, error, setLoader, sendForm]
+    const { isLoading, success, error, isLoggedIn, setLoader, sendForm, setIsLoggedIn, resetSuccess } = props
+    const authParams = [isLoading, setLoader, sendForm]
     const { showMessage, handleSubmit } = useForm(...authParams)
-    const { isLoggedIn } = useAuth(success)
-
+    const { login } = useAuth(success, setIsLoggedIn, resetSuccess)
     const msgShowToggle = showMessage ? classes.Show : classes.Hide
+
+    useEffect(() => {
+        if (!isEmpty(success)) login()
+    }, [success, login])
 
     if (isLoggedIn) return <Redirect to="/administration/list" />
     
@@ -78,14 +81,17 @@ const mapStateToProps = (state) => {
     return {
         isLoading: isLoading(state),
         success: getSuccess(state),
-        error: getError(state)
+        error: getError(state),
+        isLoggedIn: getLoggedIn(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setLoader: (loading) => dispatch(setLoaderAction(loading)),
-        sendForm: (url, options) => dispatch(adminAuthAction(url, options))
+        sendForm: (url, options) => dispatch(adminAuthAction(url, options)),
+        setIsLoggedIn: (value) => dispatch(setIsLoggedIn(value)),
+        resetSuccess: () => dispatch(resetSuccessAction())
     }
 }
 

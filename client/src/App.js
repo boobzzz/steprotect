@@ -32,7 +32,7 @@ function App() {
                     <Route exact path="/administration">
                         <AdminAuth />
                     </Route>
-                    <Route exact path="/administration/list">
+                    <Route path="/administration/list">
                         <AdminList />
                     </Route>
                     <Route path="/administration/post/create">

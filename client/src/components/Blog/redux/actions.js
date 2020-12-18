@@ -28,3 +28,10 @@ export const deletePostAction = (url, options) => {
 export const adminAuthAction = (url, options) => {
     return fetchApi(url, options, 'ADMIN_AUTH')
 }
+
+export const setIsLoggedIn = (value) => ({
+    type: 'SET_LOGGED_IN',
+    payload: value
+})
+
+export const resetSuccessAction = () => ({ type: 'RESET_SUCCESS' })

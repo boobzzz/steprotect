@@ -10,11 +10,10 @@ export const adminLogin = async (req, res, next) => {
         const { username, password } = req.body
         
         const admin = await Admin.findOne({ username })
-        const isPWMatch = await bcrypt.compare(password, admin.password)
+        if (!admin) throw new ErrorX(400, 'Невірний логін або пароль')
 
-        if (!admin || !isPWMatch) {
-            throw new ErrorX(400, 'Неправильний логін або пароль')
-        }
+        const isPWMatch = await bcrypt.compare(password, admin.password)
+        if (!isPWMatch) throw new ErrorX(400, 'Невірний логін або пароль')
 
         const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: '1h' })
 
