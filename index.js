@@ -16,14 +16,6 @@ const app = express()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client', 'build')))
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
-
 // Favicon middleware
 app.use(favicon(path.join(__dirname, 'client', 'public', 'favicon.ico')))
 // CORS middleware
@@ -42,6 +34,14 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     handleError(err, res)
 })
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 const PORT = process.env.NODE_ENV === 'production'
              ? process.env.PROD_PORT
