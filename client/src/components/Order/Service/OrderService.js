@@ -23,7 +23,9 @@ const initialValues = {
 const validationSchema = Yup.object({
     name: Yup.string().required('Введіть Ваше ім\'я'),
     services: Yup.string().required('Виберіть послугу'),
-    phone: Yup.string().min(13, 'Номер телефону надто короткий'),
+    phone: Yup.string()
+        .required('Введіть Ваш номер телефону')
+        .min(13, 'Номер телефону надто короткий'),
     email: Yup.string()
         .required('Введіть Вашу електронну скриньку')
         .email('Невірний формат електронної скриньки'),

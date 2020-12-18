@@ -11,7 +11,7 @@ import { setLoaderAction, adminAuthAction, resetSuccessAction, setIsLoggedIn } f
 import { ButtonSpinner } from '../../../UI/Spinners/Button/ButtonSpinner';
 import { FieldText } from '../../../UI/Field/Text/FieldText';
 import { useForm } from './useForm';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import classes from './AdminAuth.module.css';
 
 const initialValues = {

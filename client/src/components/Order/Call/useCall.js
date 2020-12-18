@@ -12,6 +12,7 @@ export const useCall = (isLoading, setLoader, sendOrder, resetMessage) => {
     
     const toggleCallOrderBtn = (e) => {
         e.stopPropagation()
+
         setShowCallForm(true)
         setShowMessage(false)
     }
@@ -27,6 +28,7 @@ export const useCall = (isLoading, setLoader, sendOrder, resetMessage) => {
         resetForm({ values: '' })
     
         if (!isLoading) setShowMessage(true)
+        
         setTimeout(() => {
             setShowMessage(false)
             resetMessage()

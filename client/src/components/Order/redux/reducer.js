@@ -7,7 +7,7 @@ export const orderReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case 'RESET_FORM_MESSAGE':
+        case 'RESET_MESSAGE':
             return {
                 ...state,
                 message: ''

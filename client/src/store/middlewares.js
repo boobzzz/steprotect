@@ -1,5 +1,5 @@
 import { fetchJSON } from '../utils/api/fetchJSON';
-import { handleError } from '../utils/helpers/error';
+import { errorHandler } from '../utils/error/errorHandler';
 
 export const fetchApi = (url, options, type) => async (dispatch) => {
     try {
@@ -10,6 +10,6 @@ export const fetchApi = (url, options, type) => async (dispatch) => {
         ? dispatch({ type: type, payload: data })
         : dispatch({ type: 'ERROR', payload: data })
     } catch (e) {
-        dispatch({ type: 'ERROR', payload: handleError(e) })
+        dispatch({ type: 'ERROR', payload: errorHandler(e) })
     }
 }

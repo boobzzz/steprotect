@@ -16,7 +16,9 @@ const initialValues = {
     phone: ''
 }
 const validationSchema = Yup.object({
-    phone: Yup.string().min(13, 'Номер телефону надто короткий *')
+    phone: Yup.string()
+        .required('Введіть Ваш номер телефону')
+        .min(13, 'Номер телефону надто короткий')
 })
 const style = css`
     width: 200px;
@@ -37,7 +39,7 @@ const OrderCall = (props) => {
             <div
                 className={`${classes.Button} ${callFormToggle}`}
                 onClick={toggleCallOrderBtn}>
-                <i>{btn}</i>
+                <span>{btn}</span>
                 {isLoading
                  ? <ButtonSpinner
                         style={style}
