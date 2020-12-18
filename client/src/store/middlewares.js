@@ -6,10 +6,14 @@ export const fetchApi = (url, options, type) => async (dispatch) => {
         const res = await fetchJSON(url, options)
         const data = res.body
 
+        console.log(data)
+
         !data.hasOwnProperty('status')
         ? dispatch({ type: type, payload: data })
         : dispatch({ type: 'ERROR', payload: data })
     } catch (e) {
+        console.log('catch')
+
         dispatch({ type: 'ERROR', payload: errorHandler(e) })
     }
 }
