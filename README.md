@@ -1,9 +1,9 @@
 ![SteProtect](./client/public/steprotect.jpg)
 
-## SteProtect - системи безпеки
+# SteProtect - системи безпеки
 MERN app for the company that provides security services
 
-## Libraries and dependencies used
+### Libraries and dependencies used
 
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
