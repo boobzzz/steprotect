@@ -13,7 +13,7 @@
     "http-errors": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.2",
-    "nodemailer": "^6.4.11",
+    "nodemailer": "^6.4.16",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
