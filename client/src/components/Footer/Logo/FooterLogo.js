@@ -20,7 +20,7 @@ export const FooterLogo = () => {
                 покриттям мережі.
             </p>
             <div>
-                <a href="viber://add?number=380676731457">
+                <a href="viber://add?number=380684738061">
                     <i><FaViber /><span>+38 (068) 473 80 61</span></i>
                 </a>
                 <a href="mailto:steprotect.ua@gmail.com">
