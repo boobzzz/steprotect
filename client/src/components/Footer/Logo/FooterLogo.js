@@ -21,7 +21,7 @@ export const FooterLogo = () => {
             </p>
             <div>
                 <a href="viber://add?number=380676731457">
-                    <i><FaViber /><span>+38 (067) 673 14 57</span></i>
+                    <i><FaViber /><span>+38 (068) 473 80 61</span></i>
                 </a>
                 <a href="mailto:steprotect.ua@gmail.com">
                     <i><FiMail /><span>steprotect.ua@gmail.com</span></i>

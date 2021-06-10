@@ -8,7 +8,7 @@ const phoneMask = '{+38} (000)000-00-00'
 export const FieldPhone = ({ id, label }) => {
     const { setFieldValue } = useFormikContext()
     
-    const changeHandler = (value, mask) => {
+    const changeHandler = (value) => {
         setFieldValue(id, value)
     }
 
